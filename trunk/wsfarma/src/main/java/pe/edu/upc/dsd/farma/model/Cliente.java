@@ -1,4 +1,4 @@
-package pe.edu.upc.dsd.farma;
+package pe.edu.upc.dsd.farma.model;
 
 public class Cliente {
 	private String strDNI; // Identificador del cliente

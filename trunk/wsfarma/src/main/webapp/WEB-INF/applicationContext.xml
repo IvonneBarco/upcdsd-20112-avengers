@@ -14,7 +14,7 @@
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
 	<bean id="farmaciaService"
-		class="pe.edu.upc.dsd.farma.FarmaciaServiceImpl" />
+		class="pe.edu.upc.dsd.farma.service.FarmaciaServiceImpl" />
 
 	<jaxws:endpoint id="farmaciaEndpoint" implementor="#farmaciaService"
 		address="/farmacia" />

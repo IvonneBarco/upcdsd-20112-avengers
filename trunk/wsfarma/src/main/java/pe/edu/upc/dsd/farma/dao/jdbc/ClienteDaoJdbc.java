@@ -1,9 +1,12 @@
-package pe.edu.upc.dsd.farma;
+package pe.edu.upc.dsd.farma.dao.jdbc;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
+
+import pe.edu.upc.dsd.farma.dao.ClienteDao;
+import pe.edu.upc.dsd.farma.model.Cliente;
 
 public class ClienteDaoJdbc extends SimpleJdbcDaoSupport implements ClienteDao {
 
