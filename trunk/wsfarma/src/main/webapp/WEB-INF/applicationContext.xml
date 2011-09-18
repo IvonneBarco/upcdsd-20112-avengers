@@ -16,7 +16,12 @@
 	<!-- beans -->
 	<bean id="clienteService"
 		class="pe.edu.upc.dsd.farma.service.ClienteServiceImpl" />
+	<bean id="despachoService"
+		class="pe.edu.upc.dsd.farma.service.DespachoServiceImpl" />
+	<bean id="entregaService"
+		class="pe.edu.upc.dsd.farma.service.EntregaServiceImpl" />
 	
+		
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
@@ -25,6 +30,10 @@
 	<!-- endPoints -->
 	<jaxws:endpoint id="clienteEndpoint" implementor="#clienteService"
 		address="/cliente" />
+	<jaxws:endpoint id="despachoEndpoint" implementor="#despachoService"
+		address="/despacho" />
+	<jaxws:endpoint id="entregaEndpoint" implementor="#entregaService"
+		address="/entrega" />
 	
 	
 	<!-- dataBase -->
