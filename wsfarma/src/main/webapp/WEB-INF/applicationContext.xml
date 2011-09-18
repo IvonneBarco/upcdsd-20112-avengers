@@ -14,8 +14,8 @@
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 	
 	<!-- beans -->
-	<bean id="farmaciaService"
-		class="pe.edu.upc.dsd.farma.service.FarmaciaServiceImpl" />
+	<bean id="clienteService"
+		class="pe.edu.upc.dsd.farma.service.ClienteServiceImpl" />
 	
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -23,8 +23,8 @@
 	</bean>
 	
 	<!-- endPoints -->
-	<jaxws:endpoint id="farmaciaEndpoint" implementor="#farmaciaService"
-		address="/farmacia" />
+	<jaxws:endpoint id="clienteEndpoint" implementor="#clienteService"
+		address="/cliente" />
 	
 	
 	<!-- dataBase -->
