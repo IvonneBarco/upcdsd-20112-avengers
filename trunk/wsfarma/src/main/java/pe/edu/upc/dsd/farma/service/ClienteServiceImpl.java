@@ -41,4 +41,10 @@ public class ClienteServiceImpl implements ClienteService{
 		return null;
 	}
 
+	@Override
+	public Cliente validaIngreso(String dni, String pwd) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
