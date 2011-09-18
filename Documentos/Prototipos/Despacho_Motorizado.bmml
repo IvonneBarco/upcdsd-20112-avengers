@@ -1,0 +1,67 @@
+<mockup version="1.0" skin="sketch" measuredW="1502" measuredH="554">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="94" y="78" w="494" h="220" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="-1"/>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::DataGrid" x="102" y="145" w="-1" h="-1" measuredW="478" measuredH="118" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Numero%2C%20Hora%2C%20Telefono%2C%20Ver%20Detalle%2C%20Despachar%2C%20Anular%0A1%2C%20Hoy%2003%3A45%20pm%2C%20123345%2C%20Ver%2C%20Despachar%2C%20%5B%5D%0A2%2C%20Hoy%2003%3A30%20pm%2C%20323232%2C%20Ver%2C%20Despachar%2C%20%5B%5D%0A3%2C%20Hoy%2003%3A10%20pm%2C%20342323%2C%20Ver%2C%20Despachar%2C%20%5B%5D</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="272" y="107" w="154" h="23" measuredW="154" measuredH="25" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Pendientes%20de%20despacho</text>
+        <underline>false</underline>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::DataGrid" x="165" y="348" w="361" h="118" measuredW="305" measuredH="118" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Numero%2C%20Producto%2C%20Cantidad%2C%20Importe%0A1%2C%20Producto%201%2C%203%20cajas%2C%2035%0A2%2C%20Producto%202%2C%202%20blister%2C%2020.5%0A3%2C%20Producto%203%2C%204%20unidades%2C%2010</text>
+        <borderStyle>none</borderStyle>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Canvas" x="157" y="333" w="384" h="176" measuredW="100" measuredH="70" zOrder="3" locked="false" isInGroup="-1"/>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Button" x="317" y="474" w="-1" h="-1" measuredW="56" measuredH="28" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Close</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Canvas" x="736" y="78" w="454" h="281" measuredW="100" measuredH="70" zOrder="6" locked="false" isInGroup="-1"/>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="942" y="92" w="-1" h="-1" measuredW="146" measuredH="25" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Pendientes%20de%20entrega</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::DataGrid" x="757" y="132" w="-1" h="-1" measuredW="400" measuredH="118" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Numero%2C%20Distrito%2C%20Direccion%2C%20Ver%20Detalle%2C%20Entregar%0A1%2C%20San%20Miguel%2C%20Av%20ABC...%2C%20Ver%2C%20Entregar%0A2%2C%20San%20Miguel%2C%20Av%20ABC...%2C%20Ver%2C%20Entregar%0A3%2C%20San%20Isidro%2C%20Av%20ABC...%2C%20Ver%2C%20Entregar</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Canvas" x="771" y="368" w="384" h="176" measuredW="100" measuredH="70" zOrder="9" locked="false" isInGroup="-1"/>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::DataGrid" x="779" y="383" w="361" h="118" measuredW="237" measuredH="118" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Numero%2C%20Producto%2C%20Cantidad%0A1%2C%20Producto%201%2C%203%20cajas%0A2%2C%20Producto%202%2C%202%20blister%0A3%2C%20Producto%203%2C%204%20unidades</text>
+        <borderStyle>none</borderStyle>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Button" x="931" y="509" w="-1" h="-1" measuredW="56" measuredH="28" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Close</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Canvas" x="1229" y="104" w="263" h="199" measuredW="100" measuredH="70" zOrder="12" locked="false" isInGroup="-1"/>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Label" x="1286" y="122" w="-1" h="-1" measuredW="162" measuredH="25" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Informacion%20de%20entrega%20%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::TextArea" x="1248" y="151" w="229" h="104" measuredW="200" measuredH="140" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Lorem%20ipsum%20dolor%20sit%20amet%2C%20consectetur%20adipisicing%20elit%2C%20sed%20do%20eiusmod%20tempor%20incididunt%20ut%20labore%20et%20dolore%20magna%20aliqua.%20Ut%20enim%20ad%20minim%20veniam%2C%20qui</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Button" x="1324" y="263" w="-1" h="-1" measuredW="85" measuredH="28" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Confirmar</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
