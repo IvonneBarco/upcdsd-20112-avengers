@@ -12,19 +12,25 @@
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
-
+	
+	<!-- beans -->
 	<bean id="farmaciaService"
 		class="pe.edu.upc.dsd.farma.service.FarmaciaServiceImpl" />
-
-	<jaxws:endpoint id="farmaciaEndpoint" implementor="#farmaciaService"
-		address="/farmacia" />
-
-	<jdbc:embedded-database id="dataSource">
-		<jdbc:script location="classpath:script.sql" />
-	</jdbc:embedded-database>
-
+	
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<!-- endPoints -->
+	<jaxws:endpoint id="farmaciaEndpoint" implementor="#farmaciaService"
+		address="/farmacia" />
+	
+	
+	<!-- dataBase -->
+	<jdbc:embedded-database id="dataSource">
+		<jdbc:script location="classpath:script.sql" />
+	</jdbc:embedded-database>
+
+	
 </beans>
