@@ -11,6 +11,10 @@ import pe.edu.upc.dsd.farma.model.PedidoCliente;
 @WebService
 public interface ClienteService {
 
+	// Valida Ingreso
+	public Cliente validaIngreso(@WebParam(name = "dni") String dni,
+			@WebParam(name = "pwd") String pwd);
+
 	// Registro de clientes
 	public String registraCliente(@WebParam(name = "cliente") Cliente cliente);
 
