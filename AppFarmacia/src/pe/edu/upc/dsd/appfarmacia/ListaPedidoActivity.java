@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class FrmPantalla2 extends Activity {
+public class ListaPedidoActivity extends Activity {
 	
 	private ListView lstopciones;
 	//private TextView txtmensaje;
