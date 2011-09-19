@@ -9,11 +9,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import pe.edu.upc.dsd.farma.model.Cliente;
 import pe.edu.upc.dsd.farma.service.ClienteService;
-import pe.edu.upc.dsd.farma.service.ClienteServiceImpl;
 
 @ContextConfiguration("/applicationContext-test.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
-public class ClienteServiceTest {
+public class ClienteServiceIntegrationTest {
 	@Autowired
 	private ClienteService clienteService;
 	
