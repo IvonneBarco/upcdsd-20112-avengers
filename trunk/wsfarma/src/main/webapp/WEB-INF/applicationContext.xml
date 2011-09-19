@@ -8,7 +8,10 @@
 		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-
+	
+	<context:component-scan base-package="pe.edu.upc.dsd" />
+	<tx:annotation-driven />
+	
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
@@ -20,12 +23,6 @@
 		class="pe.edu.upc.dsd.farma.service.DespachoServiceImpl" />
 	<bean id="entregaService"
 		class="pe.edu.upc.dsd.farma.service.EntregaServiceImpl" />
-	
-		
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
 	
 	<!-- endPoints -->
 	<jaxws:endpoint id="clienteEndpoint" implementor="#clienteService"
@@ -40,6 +37,10 @@
 	<jdbc:embedded-database id="dataSource">
 		<jdbc:script location="classpath:script.sql" />
 	</jdbc:embedded-database>
-
+	
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 	
 </beans>
