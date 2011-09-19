@@ -39,7 +39,7 @@ public class AppFarmaciaActivity extends Activity {
 				if (username.equalsIgnoreCase("admin")&& password.equals("admin12")){
 					//Creamos el Intent
 					lblInformacion.setText("");
-	            	Intent intent = new Intent(AppFarmaciaActivity.this, FrmPantalla2.class);
+	            	Intent intent = new Intent(AppFarmaciaActivity.this, ListaPedidoActivity.class);
 	            	
 	            	//Creamos la información a pasar entre actividades
 	            	Bundle b = new Bundle(); 

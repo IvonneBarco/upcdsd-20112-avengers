@@ -7,8 +7,12 @@
 
 	<TextView 
 			android:id="@+id/txtMensaje"
+			android:gravity="center_horizontal"
    		 	android:layout_height="wrap_content"
     		android:layout_width="fill_parent"
+    		android:background="@android:color/background_light"
+    		android:textColor="@android:color/black"
+    		android:textStyle="bold"
     		android:text="Lista de Pedidos"/>
     <ListView 
     		android:id="@+id/lstOpciones"
