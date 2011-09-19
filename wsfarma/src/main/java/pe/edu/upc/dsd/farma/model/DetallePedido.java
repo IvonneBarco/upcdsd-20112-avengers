@@ -3,8 +3,8 @@ package pe.edu.upc.dsd.farma.model;
 public class DetallePedido {
 	private int producto;
 	private int cantidad;
-	private int unidadMedida;
-	private int importe;
+	private String unidadMedida;
+	private double importe;
 	
 	public int getProducto() {
 		return producto;
@@ -18,17 +18,16 @@ public class DetallePedido {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-	public int getUnidadMedida() {
+	public String getUnidadMedida() {
 		return unidadMedida;
 	}
-	public void setUnidadMedida(int unidadMedida) {
+	public void setUnidadMedida(String unidadMedida) {
 		this.unidadMedida = unidadMedida;
 	}
-	public int getImporte() {
+	public double getImporte() {
 		return importe;
 	}
-	public void setImporte(int importe) {
+	public void setImporte(double importe) {
 		this.importe = importe;
-	}	
-	
+	}
 }

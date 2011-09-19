@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import pe.edu.upc.dsd.farma.model.Cliente;
+import pe.edu.upc.dsd.farma.model.Pedido;
 import pe.edu.upc.dsd.farma.service.ClienteService;
 
 @ContextConfiguration("/applicationContext-test.xml")
@@ -30,5 +31,17 @@ public class ClienteServiceIntegrationTest {
 		cliente.setStrPassword("123");
 		
 		Assert.assertEquals("Cliente registrado", clienteService.registraCliente(cliente));
+	}
+	
+	@Test
+	public void testRegistrarPedido(){
+		
+		Pedido pedido = new Pedido();
+		pedido.setNumero(1011);
+		pedido.setDniCliente("08123596");
+		pedido.setSubImporte(100);
+		pedido.setImporteFinal(100);
+		
+		Assert.assertEquals("Pedido registrado", clienteService.registraPedido(pedido));
 	}
 }
