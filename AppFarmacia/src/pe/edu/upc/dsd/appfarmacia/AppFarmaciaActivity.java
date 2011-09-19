@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class AppFarmaciaActivity extends Activity {
     /** Called when the activity is first created. */
@@ -15,6 +16,7 @@ public class AppFarmaciaActivity extends Activity {
 	private EditText txtPassword;
 	private Button btnAceptar;
 	private Button btnCancelar;
+	private TextView lblInformacion;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class AppFarmaciaActivity extends Activity {
         txtPassword=(EditText)findViewById(R.id.txtPassword);
         btnAceptar=(Button)findViewById(R.id.btnAceptar);
         btnCancelar=(Button)findViewById(R.id.btnCancelar);
+        lblInformacion=(TextView)findViewById(R.id.lblerror);
         
         btnAceptar.setOnClickListener(new OnClickListener(){
 
@@ -35,6 +38,7 @@ public class AppFarmaciaActivity extends Activity {
 				String password=txtPassword.getText().toString();
 				if (username.equalsIgnoreCase("admin")&& password.equals("admin12")){
 					//Creamos el Intent
+					lblInformacion.setText("");
 	            	Intent intent = new Intent(AppFarmaciaActivity.this, FrmPantalla2.class);
 	            	
 	            	//Creamos la información a pasar entre actividades
@@ -46,7 +50,10 @@ public class AppFarmaciaActivity extends Activity {
 	  
 	            	//Iniciamos la nueva actividad
 	                startActivity(intent);
-				}	
+	               
+				}else{
+					lblInformacion.setText("El inicio de sesion ha fallado. Usuario/Password incorrecto.");
+				}
 			}
         });
         btnCancelar.setOnClickListener(new OnClickListener() {
