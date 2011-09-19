@@ -21,8 +21,8 @@ public class ClienteServiceTest {
 		cliente.setStrDistrito("San Isidro");
 		cliente.setStrTelefono("4110000");
 		cliente.setStrEmail("mimail@mail.com");
-		cliente.setStrFlagNotif("");
-		cliente.setStrPassword("");
+		cliente.setStrFlagNotif("1");
+		cliente.setStrPassword("123");
 		
 		Assert.assertEquals("Cliente registrado", clienteService.registraCliente(cliente));
 	}
