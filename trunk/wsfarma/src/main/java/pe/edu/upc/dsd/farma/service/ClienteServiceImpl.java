@@ -37,8 +37,8 @@ public class ClienteServiceImpl implements ClienteService{
 
 	@Override
 	public String registraPedido(Pedido pedido) {
-		// TODO Auto-generated method stub
-		return null;
+		clienteDao.insertarPedido(pedido);
+		return "Pedido registrado";
 	}
 
 	@Override

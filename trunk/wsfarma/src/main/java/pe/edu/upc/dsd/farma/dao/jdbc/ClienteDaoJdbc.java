@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import pe.edu.upc.dsd.farma.dao.ClienteDao;
 import pe.edu.upc.dsd.farma.model.Cliente;
+import pe.edu.upc.dsd.farma.model.Pedido;
 
 @Repository
 public class ClienteDaoJdbc extends SimpleJdbcDaoSupport implements ClienteDao {
@@ -25,5 +26,14 @@ public class ClienteDaoJdbc extends SimpleJdbcDaoSupport implements ClienteDao {
 						cliente.getStrDireccion(), cliente.getStrTelefono(),
 						cliente.getStrDistrito(), cliente.getStrEmail(),
 						cliente.getStrFlagNotif(), cliente.getStrPassword());
+	}
+
+	@Override
+	public void insertarPedido(Pedido pedido) {
+		//Cabecera
+		getSimpleJdbcTemplate()
+				.update("insert into pedido(numero, dniCliente, subImporte, importeFinal) values (?, ?, ?, ?)",
+						pedido.getNumero(), pedido.getDniCliente(),
+						pedido.getSubImporte(), pedido.getImporteFinal());
 	}
 }
