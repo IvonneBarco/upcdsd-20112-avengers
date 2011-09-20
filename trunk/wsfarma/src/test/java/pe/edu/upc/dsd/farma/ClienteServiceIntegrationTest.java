@@ -44,4 +44,18 @@ public class ClienteServiceIntegrationTest {
 		
 		Assert.assertEquals("Pedido registrado", clienteService.registraPedido(pedido));
 	}
+	
+	@Test
+	public void testDescuentoCliente(){
+		
+		Assert.assertEquals(0.0, clienteService.descuentoCliente(""),0);
+		
+	}
+	
+	@Test
+	public void testlistaPedidosCliente(){
+		
+		Assert.assertEquals(null, clienteService.listaPedidosCliente(""));
+		
+	}
 }
