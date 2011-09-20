@@ -7,5 +7,13 @@
 	<jaxws:client id="clienteServiceClient"
 		serviceClass="pe.edu.upc.dsd.farma.service.ClienteService"
 		address="http://localhost:8080/wsfarma/cliente" />
+		
+	<jaxws:client id="despachoServiceClient"
+		serviceClass="pe.edu.upc.dsd.farma.service.DespachoService"
+		address="http://localhost:8080/wsfarma/despacho" />
+		
+	<jaxws:client id="entregaServiceClient"
+		serviceClass="pe.edu.upc.dsd.farma.service.EntregaService"
+		address="http://localhost:8080/wsfarma/entrega" />
 
 </beans>
