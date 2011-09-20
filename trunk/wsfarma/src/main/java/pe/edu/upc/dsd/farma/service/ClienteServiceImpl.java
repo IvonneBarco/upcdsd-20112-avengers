@@ -24,6 +24,12 @@ public class ClienteServiceImpl implements ClienteService{
 	}
 
 	@Override
+	public String registraPedido(Pedido pedido) {
+		clienteDao.insertarPedido(pedido);
+		return "Pedido registrado";
+	}
+	
+	@Override
 	public ArrayList<PedidoCliente> listaPedidosCliente(String dni) {
 		// TODO Auto-generated method stub
 		return null;
@@ -33,12 +39,6 @@ public class ClienteServiceImpl implements ClienteService{
 	public double descuentoCliente(String dni) {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-
-	@Override
-	public String registraPedido(Pedido pedido) {
-		clienteDao.insertarPedido(pedido);
-		return "Pedido registrado";
 	}
 
 	@Override
