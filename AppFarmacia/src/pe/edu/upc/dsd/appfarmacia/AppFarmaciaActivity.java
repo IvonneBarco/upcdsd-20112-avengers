@@ -53,6 +53,9 @@ public class AppFarmaciaActivity extends Activity {
 	               
 				}else{
 					lblInformacion.setText("El inicio de sesion ha fallado. Usuario/Password incorrecto.");
+					txtUserName.setText("");
+					txtPassword.setText("");
+					txtUserName.requestFocus();
 				}
 			}
         });

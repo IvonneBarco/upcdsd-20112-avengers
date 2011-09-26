@@ -2,5 +2,5 @@
 <resources>
     <string name="hola">Entrar</string>
     <string name="nombre">nombre</string>
-    <string name="app_name">AppFarmacia</string>
+    <string name="app_name">FarmaMovil</string>
 </resources>
