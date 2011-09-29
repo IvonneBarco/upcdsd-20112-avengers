@@ -12,6 +12,8 @@ import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.google.gson.Gson;
+
 import pe.edu.upc.dsd.farma.dao.ClienteDao;
 import pe.edu.upc.dsd.farma.model.Cliente;
 import pe.edu.upc.dsd.farma.model.ClienteSmall;
@@ -34,20 +36,39 @@ public class ClienteRest {
 			@FormParam("Email") String Email,
 			@FormParam("Password") String Password,
 			@FormParam("FlagNotif") String FlagNotif) {
-		
-		 Cliente cliente = new Cliente();
-		 cliente.setStrDNI(DNI);
-		 cliente.setStrNombre(Nombre);
-		 cliente.setStrDireccion(Direccion);
-		 cliente.setStrTelefono(Telefono);
-		 cliente.setStrDistrito(Distrito);
-		 cliente.setStrEmail(Email);
-		 cliente.setStrPassword(Password);
-		 cliente.setStrFlagNotif(FlagNotif);
-		 
-		 clienteDao.insertarCliente(cliente);
-		 
+
+		Cliente cliente = new Cliente();
+		cliente.setStrDNI(DNI);
+		cliente.setStrNombre(Nombre);
+		cliente.setStrDireccion(Direccion);
+		cliente.setStrTelefono(Telefono);
+		cliente.setStrDistrito(Distrito);
+		cliente.setStrEmail(Email);
+		cliente.setStrPassword(Password);
+		cliente.setStrFlagNotif(FlagNotif);
+
+		clienteDao.insertarCliente(cliente);
+
 		return "Cliente registrado : " + Nombre;
+	}
+
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/ingresar")
+	public String ingresaCliente(String json) {
+		// TODO: Terminar de implementar
+		// Json Ejemplo :
+		/*
+		 * { "strDNI":"44992694", "strNombre":"Daniel",
+		 * "strDireccion":"Av. La Prueba", "strTelefono":"5369504",
+		 * "strDistrito":"San Miguel", "strEmail":"a@a.com",
+		 * "strPassword":"abc123", "strFlagNotif":"Si" }
+		 */
+		
+		Gson gson = new Gson();
+		Cliente cliente = gson.fromJson(json, Cliente.class);
+
+		return "Cliente registrado : " + cliente.getStrEmail();
 	}
 
 	@GET
