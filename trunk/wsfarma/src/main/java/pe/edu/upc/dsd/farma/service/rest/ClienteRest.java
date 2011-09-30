@@ -16,7 +16,6 @@ import com.google.gson.Gson;
 
 import pe.edu.upc.dsd.farma.dao.ClienteDao;
 import pe.edu.upc.dsd.farma.model.Cliente;
-import pe.edu.upc.dsd.farma.model.ClienteSmall;
 
 @Path("clienteRest")
 @Produces("text/plain")
@@ -65,9 +64,13 @@ public class ClienteRest {
 		 * "strPassword":"abc123", "strFlagNotif":"Si" }
 		 */
 		
+		System.out.println(json);
+		
 		Gson gson = new Gson();
 		Cliente cliente = gson.fromJson(json, Cliente.class);
-
+			
+		clienteDao.insertarCliente(cliente);
+		
 		return "Cliente registrado : " + cliente.getStrEmail();
 	}
 
