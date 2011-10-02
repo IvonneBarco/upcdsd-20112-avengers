@@ -67,7 +67,7 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 				
 		try {
 			return getSimpleJdbcTemplate().query(
-					"select	p.numero, p.fecha, c.telefono, c.nombre " +
+					"select	p.numero, p.fecha, c.telefono, c.nombre as nombreCliente " +
 					"from	pedido p inner join cliente c " +
 					"on	( p.dniCliente = c.DNI ) " +
 					"where	p.estadoPedido = ?",
@@ -87,7 +87,7 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 		
 		try {
 			return getSimpleJdbcTemplate().query(
-					"select	p.numero, c.distrito, c.direccion, c.nombre " +
+					"select	p.numero, c.distrito, c.direccion, c.nombre as nombreCliente " +
 							"from	pedido p inner join cliente c " +
 							"on	( p.dniCliente = c.DNI ) " +
 							"where	p.estadoPedido = ?",
