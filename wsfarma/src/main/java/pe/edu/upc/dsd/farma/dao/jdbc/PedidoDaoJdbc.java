@@ -28,18 +28,18 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 	public void insertarPedido(Pedido pedido) {
 		// Cabecera
 		getSimpleJdbcTemplate()
-				.update("insert into pedido(numero, dniCliente, fecha, subImporte, importeFinal) values(?, ?, ?, ?, ?)",
-						pedido.getNumero(), pedido.getDniCliente(),
+				.update("insert into pedido(numero, dniCliente, estadoPedido, fecha, subImporte, importeFinal) values(?, ?, ?, ?, ?)",
+						pedido.getNumero(), pedido.getDniCliente(), 0,
 						pedido.getFecha(), pedido.getSubImporte(),
 						pedido.getImporteFinal());
 
 		// Detalle
 		for (DetallePedido detalle : pedido.getDetalle())
 			getSimpleJdbcTemplate()
-					.update("insert into pedidoDetalle(numeroPedido, itemPedido, codigoProducto, estadoPedido,cantidad, importe, total) "
+					.update("insert into pedidoDetalle(numeroPedido, itemPedido, codigoProducto,cantidad, importe, total) "
 							+ "values(?, ?, ?, ?, ?, ?, ?)",
 							detalle.getNumeroPedido(), detalle.getItemPedido(),
-							detalle.getCodigoProducto(), 0,
+							detalle.getCodigoProducto(),
 							detalle.getCantidad(), detalle.getImporte(),
 							detalle.getTotal());
 	}
