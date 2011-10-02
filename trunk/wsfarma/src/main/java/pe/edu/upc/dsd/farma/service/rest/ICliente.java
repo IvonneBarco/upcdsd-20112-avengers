@@ -6,17 +6,17 @@ import pe.edu.upc.dsd.farma.model.Cliente;
 public interface ICliente {
 	
 	// Valida Ingreso
-		public Cliente validaIngreso(String dni, String pwd);
+		public String validaIngreso(String dni, String pwd);
 
 		// Registro de clientes
-		public String registraCliente(String json);
+		public String registraCliente(String jsonCliente);
 
 		// Listado de pedidos
-		//public ArrayList<PedidoCliente> listaPedidosCliente(String dni);
+		public String listaPedidosCliente(String jsonDni);
 
 		// DescuentoCliente
-		//public double descuentoCliente(String dni);
+		public String descuentoCliente(String jsonDni);
 
 		// RegistroPedido
-		//public String registraPedido(Pedido pedido);
+		public String registraPedido(String jsonPedido);
 }
