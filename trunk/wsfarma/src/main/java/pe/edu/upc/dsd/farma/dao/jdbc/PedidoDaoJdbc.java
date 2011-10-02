@@ -1,0 +1,28 @@
+package pe.edu.upc.dsd.farma.dao.jdbc;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
+import org.springframework.stereotype.Repository;
+
+import pe.edu.upc.dsd.farma.dao.PedidoDao;
+import pe.edu.upc.dsd.farma.model.Pedido;
+
+@Repository
+public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
+	
+	@Autowired
+	public PedidoDaoJdbc(DataSource dataSource) {
+		setDataSource(dataSource);
+	}
+
+	@Override
+	public void insertarPedido(Pedido pedido) {
+		//Cabecera
+		getSimpleJdbcTemplate()
+				.update("insert into pedido(numero, dniCliente, subImporte, importeFinal) values (?, ?, ?, ?)",
+						pedido.getNumero(), pedido.getDniCliente(),
+						pedido.getSubImporte(), pedido.getImporteFinal());
+	}
+}

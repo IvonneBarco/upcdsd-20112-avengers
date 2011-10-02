@@ -3,6 +3,9 @@ package pe.edu.upc.dsd.farma.dao.jdbc;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
@@ -29,11 +32,19 @@ public class ClienteDaoJdbc extends SimpleJdbcDaoSupport implements ClienteDao {
 	}
 
 	@Override
-	public void insertarPedido(Pedido pedido) {
-		//Cabecera
-		getSimpleJdbcTemplate()
-				.update("insert into pedido(numero, dniCliente, subImporte, importeFinal) values (?, ?, ?, ?)",
-						pedido.getNumero(), pedido.getDniCliente(),
-						pedido.getSubImporte(), pedido.getImporteFinal());
+	public Cliente validaCliente(String dni, String pwd) {
+		
+		try {
+			return getSimpleJdbcTemplate()
+					.queryForObject(
+							"select DNI, nombre, direccion, telefono, " +
+							"distrito,email,flagNotif,password where DNI=? and password = ?",
+							new BeanPropertyRowMapper<Cliente>(Cliente.class),
+							dni, pwd);
+		} catch (EmptyResultDataAccessException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+		
 	}
 }

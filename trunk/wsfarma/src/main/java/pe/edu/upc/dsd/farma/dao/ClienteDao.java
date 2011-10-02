@@ -7,6 +7,7 @@ public interface ClienteDao {
 	
 	// Registro de clientes en BD Jdbc
 	public void insertarCliente(Cliente cliente);
-	// Registro de pedido
-	public void insertarPedido(Pedido pedido);
+	
+	//Valida Acceso Cliente
+	public Cliente validaCliente(String dni, String pwd); 
 }

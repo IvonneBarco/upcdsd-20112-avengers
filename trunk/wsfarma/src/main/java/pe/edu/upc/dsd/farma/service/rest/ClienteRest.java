@@ -53,11 +53,32 @@ public class ClienteRest implements ICliente{
 		return gson.toJson(message, Mensaje.class);
 		
 	}
-
+	@GET
+	@Consumes(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/validar")
 	@Override
 	public String validaIngreso(String dni, String pwd) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		
+		Cliente cliente =  clienteDao.validaCliente(dni, pwd);
+		Gson gson = new Gson();
+		
+		Mensaje message = new Mensaje();
+		
+		if (cliente.equals(null)){
+			message.setError(true);
+			message.setSuccess(false);
+			message.setDescripcion("Error Cliente no encontrado");
+			
+		}else{
+			message.setError(false);
+			message.setSuccess(true);
+			message.setDescripcion("Cliente validado");
+		}
+		
+		return gson.toJson(message, Mensaje.class);
+		
 	}
 
 	@Override
@@ -77,7 +98,5 @@ public class ClienteRest implements ICliente{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 
 }
