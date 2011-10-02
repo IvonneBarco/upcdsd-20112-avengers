@@ -21,14 +21,14 @@ public class ClienteServiceIntegrationTest {
 	public void testRegistrarCliente(){
 		
 		Cliente cliente = new Cliente();
-		cliente.setStrDNI("08123596");
-		cliente.setStrNombre("Juan Perez");
-		cliente.setStrDireccion("Av. Javier Prado Este 221");
-		cliente.setStrDistrito("San Isidro");
-		cliente.setStrTelefono("4110000");
-		cliente.setStrEmail("mimail@mail.com");
-		cliente.setStrFlagNotif("1");
-		cliente.setStrPassword("123");
+		cliente.setDni("08123596");
+		cliente.setNombre("Juan Perez");
+		cliente.setDireccion("Av. Javier Prado Este 221");
+		cliente.setDistrito("San Isidro");
+		cliente.setTelefono("4110000");
+		cliente.setEmail("mimail@mail.com");
+		cliente.setFlagNotif("1");
+		cliente.setPassword("123");
 		
 		Assert.assertEquals("Cliente registrado", clienteService.registraCliente(cliente));
 	}

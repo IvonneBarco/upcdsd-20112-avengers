@@ -12,10 +12,10 @@ public interface ICliente {
 		public String registraCliente(String jsonCliente);
 
 		// Listado de pedidos
-		public String listaPedidosCliente(String jsonDni);
+		public String listaPedidos(String jsonDni);
 
 		// DescuentoCliente
-		public String descuentoCliente(String jsonDni);
+		public String obtieneDescuento(String jsonDni);
 
 		// RegistroPedido
 		public String registraPedido(String jsonPedido);

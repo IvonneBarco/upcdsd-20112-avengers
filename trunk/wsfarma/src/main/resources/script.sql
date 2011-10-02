@@ -16,18 +16,18 @@ create table cliente(
 
 create table pedido(
 	numero integer primary key,
-	fecha varchar(8),
+	fecha varchar(10),
 	dniCliente varchar(8),
 	subImporte double,
 	importeFinal double
 );
 
 create table pedidoDetalle(
-	num_pedido integer,
-	itempedido integer,
-	codproducto char(8),
+	numeroPedido integer,
+	itemPedido integer,
+	codigoProducto char(8),
 	cantidad integer,
-	precio double,
+	importe double,
 	total double,
 );
 
@@ -38,19 +38,19 @@ create table producto(
 	precio double,
 );
 
-insert into cliente(DNI,nombre) values('42587813','MARCELO MOTTA');
-insert into cliente(DNI,nombre) values('42543244','PETROVICH GIL OMARIA');
-insert into cliente(DNI,nombre) values('41232333','MOTTA PAOLA');
-insert into cliente(DNI,nombre) values('16473848','GIANLUCA BRUNO');
-insert into cliente(DNI,nombre) values('48274823','DODORIAN FREEZER');
-insert into cliente(DNI,nombre) values('12343434','CAPSULA GOKU');
+insert into cliente(DNI,nombre,password) values('42587813','MARCELO MOTTA','MOTTA');
+insert into cliente(DNI,nombre,password) values('42543244','PETROVICH GIL OMARIA','OMARIA');
+insert into cliente(DNI,nombre,password) values('41232333','MOTTA PAOLA','PAOLA');
+insert into cliente(DNI,nombre,password) values('16473848','GIANLUCA BRUNO','BRUNO');
+insert into cliente(DNI,nombre,password) values('48274823','DODORIAN FREEZER','FREEZER');
+insert into cliente(DNI,nombre,password) values('12343434','CAPSULA GOKU','GOKU');
 
-insert into pedido values (1,'26082011','42587813',4.15,4.15);
-insert into pedido values (2,'26082011','42543244',8.50,8.50);
-insert into pedido values (3,'26082011','41232333',20.22,20.22);
-insert into pedido values (4,'26082011','16473848',100.00,100.00);
-insert into pedido values (5,'26082011','48274823',55.98,55.98);
-insert into pedido values (6,'26082011','12343434',78.50,78.50);
+insert into pedido values (1,'26-08-2011','42587813',4.15,4.15);
+insert into pedido values (2,'26-08-2011','42543244',8.50,8.50);
+insert into pedido values (3,'26-08-2011','41232333',20.22,20.22);
+insert into pedido values (4,'26-08-2011','42587813',100.00,100.00);
+insert into pedido values (5,'26-08-2011','42587813',55.98,55.98);
+insert into pedido values (6,'26-08-2011','12343434',78.50,78.50);
 
 insert into pedidoDetalle values(1,1,'P0000001',1,5.00,5.00);
 insert into pedidoDetalle values(1,2,'P0000002',2,1.00,2.00);

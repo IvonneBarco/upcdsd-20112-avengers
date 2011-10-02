@@ -25,4 +25,5 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 						pedido.getNumero(), pedido.getDniCliente(),
 						pedido.getSubImporte(), pedido.getImporteFinal());
 	}
+	
 }
