@@ -1,8 +1,12 @@
 package pe.edu.upc.dsd.farma.service.rest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -17,6 +21,7 @@ import com.google.gson.Gson;
 import pe.edu.upc.dsd.farma.dao.ClienteDao;
 import pe.edu.upc.dsd.farma.model.Cliente;
 import pe.edu.upc.dsd.farma.model.Mensaje;
+import pe.edu.upc.dsd.farma.model.Pedido;
 
 @Path("clienteRest")
 @Produces("text/plain")
@@ -53,20 +58,20 @@ public class ClienteRest implements ICliente{
 		return gson.toJson(message, Mensaje.class);
 		
 	}
-	@GET
+	
+	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/validar")
 	@Override
-	public String validaIngreso(String dni, String pwd) {
-		
+	public String validaIngreso(@FormParam("dni")String dni, @FormParam("pwd") String pwd) {
 		
 		Cliente cliente =  clienteDao.validaCliente(dni, pwd);
 		Gson gson = new Gson();
 		
 		Mensaje message = new Mensaje();
 		
-		if (cliente.equals(null)){
+		if (cliente == null){
 			message.setError(true);
 			message.setSuccess(false);
 			message.setDescripcion("Error Cliente no encontrado");
@@ -81,14 +86,20 @@ public class ClienteRest implements ICliente{
 		
 	}
 
+	@GET
+	@Consumes(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/listar/{dni}")
 	@Override
-	public String listaPedidosCliente(String jsonDni) {
-		// TODO Auto-generated method stub
-		return null;
+	public String listaPedidos(@PathParam("dni")String dni) {
+		Gson gson = new Gson();
+		
+		List<Pedido> lista = clienteDao.listaPedidos(dni);
+		return gson.toJson(lista);
 	}
 
 	@Override
-	public String descuentoCliente(String jsonDni) {
+	public String obtieneDescuento(String dni) {
 		// TODO Auto-generated method stub
 		return null;
 	}

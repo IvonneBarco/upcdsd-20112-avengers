@@ -1,12 +1,21 @@
 package pe.edu.upc.dsd.farma.model;
 
+import java.util.ArrayList;
+
 public class Pedido {
 	private int numero;
 	private String dniCliente;
+	private String fecha;
 	private double subImporte;
 	private double importeFinal;
-	private DetallePedido detalle;
+	private ArrayList<DetallePedido> detalle;
 	
+	public String getFecha() {
+		return fecha;
+	}
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
 	public int getNumero() {
 		return numero;
 	}
@@ -31,10 +40,10 @@ public class Pedido {
 	public void setImporteFinal(double importeFinal) {
 		this.importeFinal = importeFinal;
 	}
-	public DetallePedido getDetalle() {
+	public ArrayList<DetallePedido> getDetalle() {
 		return detalle;
 	}
-	public void setDetalle(DetallePedido detalle) {
+	public void setDetalle(ArrayList<DetallePedido> detalle) {
 		this.detalle = detalle;
 	}
 	
