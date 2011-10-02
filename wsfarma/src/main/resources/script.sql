@@ -18,6 +18,7 @@ create table pedido(
 	numero integer primary key,
 	dniCliente varchar(8),
 	fecha varchar(10),
+	estadoPedido int,
 	subImporte double,
 	importeFinal double
 );
@@ -37,7 +38,6 @@ create table producto(
 	unidMedida varchar(3),
 	precio double,
 );
-
 
 insert into producto values ('P0000001', 'Aspirina x 500 mg', 'BLI', 5.00);
 insert into producto values ('P0000002', 'Panadol', 'UND', 1.00);
