@@ -1,6 +1,8 @@
 package pe.edu.upc.dsd.farma.service.rest;
 
+import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
@@ -81,10 +83,17 @@ public class ClienteRest implements ICliente {
 		return gson.toJson(lista);
 	}
 
+	@GET
+	@Consumes(MediaType.TEXT_PLAIN)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/obtieneDescuento/{dni}")
 	@Override
-	public String obtieneDescuento(String dni) {
-		// TODO Auto-generated method stub
-		return null;
+	public String obtieneDescuento(@PathParam("dni") String dni) {
+		//TODO: Implementar en Dao Descuento
+		Hashtable<String, Double> mapper =  new Hashtable<String, Double>();
+		mapper.put("descuento", 0.00);
+		
+		return gson.toJson(mapper);
 	}
 
 	@POST
