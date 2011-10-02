@@ -4,7 +4,6 @@ public class PedidoEntrega {
 	private int numero;
 	private String distrito;
 	private String direccion;
-	private DetallePedido detalle;
 
 	public int getNumero() {
 		return numero;
@@ -28,14 +27,6 @@ public class PedidoEntrega {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
-	}
-
-	public DetallePedido getDetalle() {
-		return detalle;
-	}
-
-	public void setDetalle(DetallePedido detalle) {
-		this.detalle = detalle;
 	}
 
 }

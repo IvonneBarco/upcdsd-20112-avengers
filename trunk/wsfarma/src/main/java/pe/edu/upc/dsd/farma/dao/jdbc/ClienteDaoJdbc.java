@@ -66,19 +66,4 @@ public class ClienteDaoJdbc extends SimpleJdbcDaoSupport implements ClienteDao {
 		}
 	}
 	
-	private List<DetallePedido> listaDetallePedido(int numeroPedido){
-		
-		try {
-			return getSimpleJdbcTemplate().query(
-					"select numeroPedido, itemPedido, codigoProducto, cantidad, importe, total " +
-					"from	pedidoDetalle " +
-					"where	numeroPedido = ?",
-					new BeanPropertyRowMapper<DetallePedido>(DetallePedido.class), numeroPedido);
-					
-		} catch (EmptyResultDataAccessException e) {
-			// TODO Auto-generated catch block
-			return null;
-		}
-	}
-	
 }

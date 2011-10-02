@@ -4,7 +4,15 @@ public class PedidoDespacho {
 	private int numero;
 	private String fecha;
 	private String telefono;
-	private DetallePedido detalle;
+	private String nombreCliente;
+	
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
+
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
+	}
 
 	public int getNumero() {
 		return numero;
@@ -28,14 +36,6 @@ public class PedidoDespacho {
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-	}
-
-	public DetallePedido getDetalle() {
-		return detalle;
-	}
-
-	public void setDetalle(DetallePedido detalle) {
-		this.detalle = detalle;
 	}
 
 }
