@@ -27,6 +27,7 @@ public class ClienteRest implements ICliente {
 
 	@Autowired
 	private ClienteDao clienteDao;
+	@Autowired
 	private PedidoDao pedidoDao;
 	private Mensaje message = new Mensaje();
 	private Gson gson = new Gson();

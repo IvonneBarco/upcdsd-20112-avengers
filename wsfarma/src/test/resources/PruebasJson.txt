@@ -2,16 +2,42 @@ Json Ejemplos :
 
 Registrar Cliente
 
-{ "dni":"44992694", "nombre":"Daniel",
-  "direccion":"Av. La Prueba", "telefono":"5369504",
-  "distrito":"San Miguel", "email":"a@a.com",
-  "password":"abc123", "flagNotif":"Si" }
+{ 
+	"dni":"44992694", 
+	"nombre":"Daniel",
+	"direccion":"Av. La Prueba", 
+	"telefono":"5369504",
+ 	"distrito":"San Miguel", 
+ 	"email":"a@a.com",
+  	"password":"abc123", 
+  	"flagNotif":"Si" 
+}
   
 
 Registrar Pedido
 
-{ "numero":"99", "dniCliente":"44992694", "fecha":"02-10-2011",  "subImporte":"500.00", "importeFinal":"500.00",
-  "detalle":[{"numeroPedido":"99", "itemPedido":"1", "codigoProducto":"P0000002", "cantidad":"2", "importe":"2.00", "total":"2.00"},
-  			 {"numeroPedido":"99", "itemPedido":"2", "codigoProducto":"P0000005", "cantidad":"1", "importe":"20.00", "total":"20.00"}
-  			]
+{
+    "numero": "99",
+    "dniCliente": "44992694",
+    "fecha": "02-10-2011",
+    "subImporte": "500.00",
+    "importeFinal": "500.00",
+    "detalle": [
+        {
+            "numeroPedido": "99",
+            "itemPedido": "1",
+            "codigoProducto": "P0000002",
+            "cantidad": "2",
+            "importe": "2.00",
+            "total": "2.00"
+        },
+        {
+            "numeroPedido": "99",
+            "itemPedido": "2",
+            "codigoProducto": "P0000005",
+            "cantidad": "1",
+            "importe": "20.00",
+            "total": "20.00"
+        }
+    ]
 }
