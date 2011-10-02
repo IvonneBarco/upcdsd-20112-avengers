@@ -25,8 +25,7 @@ create table pedido(
 create table pedidoDetalle(
 	num_pedido integer,
 	itempedido integer,
-	codproducto varchar(6),
-	descripcion varchar(30),
+	codproducto char(8),
 	cantidad integer,
 	precio double,
 	total double,
@@ -53,16 +52,16 @@ insert into pedido values (4,'26082011','16473848',100.00,100.00);
 insert into pedido values (5,'26082011','48274823',55.98,55.98);
 insert into pedido values (6,'26082011','12343434',78.50,78.50);
 
-insert into pedidoDetalle values(1,1,'000001','PANADOL',1,1.50,1.50);
-insert into pedidoDetalle values(1,2,'000002','CURITA',2,1.50,3.00);
-insert into pedidoDetalle values(2,1,'000002','VITATON',1,5.00,5.00);
-insert into pedidoDetalle values(2,2,'000008','REDOXON',1,5.00,5.00);
-insert into pedidoDetalle values(2,3,'000009','APRONAX',1,5.00,5.00);
-insert into pedidoDetalle values(2,4,'000001','ASPIRINA',2,2.61,5.22);
-insert into pedidoDetalle values(3,1,'000006','DOLOCOLADRAN',1,20.22,20.22);
-insert into pedidoDetalle values(4,1,'000004','VITAPYRENA',1,100.00,100.00);
-insert into pedidoDetalle values(5,1,'000005','VICK',1,55.98,55.98);
-insert into pedidoDetalle values(6,1,'000003','AGUA DE HAZAR',1,78.5,78.5);
+insert into pedidoDetalle values(1,1,'P0000001',1,5.00,5.00);
+insert into pedidoDetalle values(1,2,'P0000002',2,1.00,2.00);
+insert into pedidoDetalle values(2,1,'P0000005',1,5.00,5.00);
+insert into pedidoDetalle values(2,2,'P0000006',1,7.40,7.40);
+insert into pedidoDetalle values(2,3,'P0000008',1,18.00,18.00);
+insert into pedidoDetalle values(2,4,'P0000009',2,6.00,12.00);
+insert into pedidoDetalle values(3,1,'P0000013',1,16.50,16.50);
+insert into pedidoDetalle values(4,1,'P0000006',1,7.40,7.40);
+insert into pedidoDetalle values(5,1,'P0000015',1,10.00,10.00);
+insert into pedidoDetalle values(6,1,'P0000002',1,1.00,1.00);
 
 insert into producto values ('P0000001', 'Aspirina x 500 mg', 'BLI', 5.00);
 insert into producto values ('P0000002', 'Panadol', 'UND', 1.00);
@@ -76,6 +75,6 @@ insert into producto values ('P0000009', 'Buscapina', 'BLI', 6.00);
 insert into producto values ('P0000010', 'Hepamaxx', 'BLI', 5.00);
 insert into producto values ('P0000011', 'Higanatur', 'BLI', 4.50);
 insert into producto values ('P0000012', 'Novalgina', 'BLI', 9.00);
-insert into producto values ('P0000013', 'Shampoo Clear Men', , 16.50);
-insert into producto values ('P0000014', 'Enjuague Listerine', , 22.00);
+insert into producto values ('P0000013', 'Shampoo Clear Men','BTL' , 16.50);
+insert into producto values ('P0000014', 'Enjuague Listerine','BTL', 22.00);
 insert into producto values ('P0000015', 'Excedrin Migraña', 'BLI', 10.00);
