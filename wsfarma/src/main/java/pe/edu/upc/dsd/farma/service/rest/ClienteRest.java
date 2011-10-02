@@ -30,7 +30,7 @@ public class ClienteRest implements ICliente{
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/registrar")
 	@Override
-	public String registraCliente(String json) {
+	public String registraCliente(String jsonCliente) {
 		// Json Ejemplo :
 		/*
 		 * { "strDNI":"44992694", "strNombre":"Daniel",
@@ -41,7 +41,7 @@ public class ClienteRest implements ICliente{
 		
 		Gson gson = new Gson();
 		
-		Cliente cliente = gson.fromJson(json, Cliente.class);
+		Cliente cliente = gson.fromJson(jsonCliente, Cliente.class);
 			
 		clienteDao.insertarCliente(cliente);
 		
@@ -55,9 +55,29 @@ public class ClienteRest implements ICliente{
 	}
 
 	@Override
-	public Cliente validaIngreso(String dni, String pwd) {
+	public String validaIngreso(String dni, String pwd) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public String listaPedidosCliente(String jsonDni) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String descuentoCliente(String jsonDni) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String registraPedido(String jsonPedido) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }
