@@ -62,14 +62,42 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 
 	@Override
 	public List<PedidoDespacho> listaPedidosDespacho() {
-		// TODO Auto-generated method stub
-		return null;
+		//Cambiar a Constantes
+		int estadoPorDespachar = 0;
+				
+		try {
+			return getSimpleJdbcTemplate().query(
+					"select	p.numero, p.fecha, c.telefono, c.nombre " +
+					"from	pedido p inner join cliente c " +
+					"on	( p.dniCliente = c.DNI ) " +
+					"where	p.estadoPedido = ?",
+					new BeanPropertyRowMapper<PedidoDespacho>(
+							PedidoDespacho.class), estadoPorDespachar);
+
+		} catch (EmptyResultDataAccessException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
 	}
 
 	@Override
 	public List<PedidoEntrega> listaPedidosEntrega() {
-		// TODO Auto-generated method stub
-		return null;
+		//Cambiar a Constantes
+		int estadoPorEntregar = 1; 
+		
+		try {
+			return getSimpleJdbcTemplate().query(
+					"select	p.numero, c.distrito, c.direccion, c.nombre " +
+							"from	pedido p inner join cliente c " +
+							"on	( p.dniCliente = c.DNI ) " +
+							"where	p.estadoPedido = ?",
+					new BeanPropertyRowMapper<PedidoEntrega>(
+							PedidoEntrega.class), estadoPorEntregar);
+
+		} catch (EmptyResultDataAccessException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
 	}
 
 }

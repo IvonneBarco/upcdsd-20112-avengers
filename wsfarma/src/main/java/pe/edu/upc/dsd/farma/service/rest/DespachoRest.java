@@ -12,10 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.gson.Gson;
 
-import pe.edu.upc.dsd.farma.dao.ClienteDao;
 import pe.edu.upc.dsd.farma.dao.PedidoDao;
 import pe.edu.upc.dsd.farma.model.Mensaje;
-import pe.edu.upc.dsd.farma.model.Pedido;
 import pe.edu.upc.dsd.farma.model.PedidoDespacho;
 
 @Path("despachoRest")
@@ -29,7 +27,6 @@ public class DespachoRest implements IDespacho {
 	private Gson gson = new Gson();
 	
 	@GET
-	@Consumes(MediaType.TEXT_PLAIN)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/listar/")
 	@Override
