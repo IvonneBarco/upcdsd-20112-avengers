@@ -3,7 +3,6 @@ package pe.edu.upc.dsd.farma.dao.jdbc;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Repository;
 
 import pe.edu.upc.dsd.farma.dao.ClienteDao;
 import pe.edu.upc.dsd.farma.model.Cliente;
-import pe.edu.upc.dsd.farma.model.Pedido;
 
 @Repository
 public class ClienteDaoJdbc extends SimpleJdbcDaoSupport implements ClienteDao {
