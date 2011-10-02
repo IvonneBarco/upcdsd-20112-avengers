@@ -7,11 +7,12 @@ import org.springframework.jdbc.core.simple.SimpleJdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import pe.edu.upc.dsd.farma.dao.PedidoDao;
+import pe.edu.upc.dsd.farma.model.DetallePedido;
 import pe.edu.upc.dsd.farma.model.Pedido;
 
 @Repository
 public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
-	
+
 	@Autowired
 	public PedidoDaoJdbc(DataSource dataSource) {
 		setDataSource(dataSource);
@@ -19,11 +20,19 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 
 	@Override
 	public void insertarPedido(Pedido pedido) {
-		//Cabecera
+		// Cabecera
 		getSimpleJdbcTemplate()
-				.update("insert into pedido(numero, dniCliente, subImporte, importeFinal) values (?, ?, ?, ?)",
+				.update("insert into pedido(numero, dniCliente, subImporte, importeFinal) values(?, ?, ?, ?)",
 						pedido.getNumero(), pedido.getDniCliente(),
 						pedido.getSubImporte(), pedido.getImporteFinal());
+
+		// Detalle
+		for (DetallePedido detalle : pedido.getDetalle())
+			getSimpleJdbcTemplate()
+					.update("insert into pedidoDetalle(numeroPedido, itemPedido, codigoProducto, cantidad, importe, total) values(?, ?, ?, ?, ?, ?)",
+							detalle.getNumeroPedido(), detalle.getItemPedido(),
+							detalle.getCodigoProducto(), detalle.getCantidad(),
+							detalle.getImporte(), detalle.getTotal());
 	}
-	
+
 }

@@ -38,30 +38,6 @@ create table producto(
 	precio double,
 );
 
-insert into cliente(DNI,nombre,password) values('42587813','MARCELO MOTTA','MOTTA');
-insert into cliente(DNI,nombre,password) values('42543244','PETROVICH GIL OMARIA','OMARIA');
-insert into cliente(DNI,nombre,password) values('41232333','MOTTA PAOLA','PAOLA');
-insert into cliente(DNI,nombre,password) values('16473848','GIANLUCA BRUNO','BRUNO');
-insert into cliente(DNI,nombre,password) values('48274823','DODORIAN FREEZER','FREEZER');
-insert into cliente(DNI,nombre,password) values('12343434','CAPSULA GOKU','GOKU');
-
-insert into pedido values (1,'26-08-2011','42587813',4.15,4.15);
-insert into pedido values (2,'26-08-2011','42543244',8.50,8.50);
-insert into pedido values (3,'26-08-2011','41232333',20.22,20.22);
-insert into pedido values (4,'26-08-2011','42587813',100.00,100.00);
-insert into pedido values (5,'26-08-2011','42587813',55.98,55.98);
-insert into pedido values (6,'26-08-2011','12343434',78.50,78.50);
-
-insert into pedidoDetalle values(1,1,'P0000001',1,5.00,5.00);
-insert into pedidoDetalle values(1,2,'P0000002',2,1.00,2.00);
-insert into pedidoDetalle values(2,1,'P0000005',1,5.00,5.00);
-insert into pedidoDetalle values(2,2,'P0000006',1,7.40,7.40);
-insert into pedidoDetalle values(2,3,'P0000008',1,18.00,18.00);
-insert into pedidoDetalle values(2,4,'P0000009',2,6.00,12.00);
-insert into pedidoDetalle values(3,1,'P0000013',1,16.50,16.50);
-insert into pedidoDetalle values(4,1,'P0000006',1,7.40,7.40);
-insert into pedidoDetalle values(5,1,'P0000015',1,10.00,10.00);
-insert into pedidoDetalle values(6,1,'P0000002',1,1.00,1.00);
 
 insert into producto values ('P0000001', 'Aspirina x 500 mg', 'BLI', 5.00);
 insert into producto values ('P0000002', 'Panadol', 'UND', 1.00);
