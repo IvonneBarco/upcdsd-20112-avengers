@@ -4,9 +4,18 @@ public class PedidoEntrega {
 	private int numero;
 	private String distrito;
 	private String direccion;
+	private String nombreCliente;
 
 	public int getNumero() {
 		return numero;
+	}
+
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
+
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
 	}
 
 	public void setNumero(int numero) {
