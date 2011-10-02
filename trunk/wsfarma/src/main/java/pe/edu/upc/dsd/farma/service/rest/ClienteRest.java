@@ -20,7 +20,7 @@ import pe.edu.upc.dsd.farma.model.Mensaje;
 
 @Path("clienteRest")
 @Produces("text/plain")
-public class ClienteRest {
+public class ClienteRest implements ICliente{
 
 	@Autowired
 	private ClienteDao clienteDao;
@@ -29,7 +29,8 @@ public class ClienteRest {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/registrar")
-	public String ingresaCliente(String json) {
+	@Override
+	public String registraCliente(String json) {
 		// Json Ejemplo :
 		/*
 		 * { "strDNI":"44992694", "strNombre":"Daniel",
@@ -53,5 +54,10 @@ public class ClienteRest {
 		
 	}
 
+	@Override
+	public Cliente validaIngreso(String dni, String pwd) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
