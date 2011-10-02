@@ -1,6 +1,5 @@
 package pe.edu.upc.dsd.farma.dao.jdbc;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;

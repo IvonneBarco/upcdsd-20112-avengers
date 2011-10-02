@@ -1,22 +1,19 @@
 package pe.edu.upc.dsd.farma.service.rest;
 
-import pe.edu.upc.dsd.farma.model.Cliente;
-
-
 public interface ICliente {
-	
+
 	// Valida Ingreso
-		public String validaIngreso(String dni, String pwd);
+	public String validaIngreso(String dni, String pwd);
 
-		// Registro de clientes
-		public String registraCliente(String jsonCliente);
+	// Registro de clientes
+	public String registraCliente(String jsonCliente);
 
-		// Listado de pedidos
-		public String listaPedidos(String jsonDni);
+	// Listado de pedidos
+	public String listaPedidos(String jsonDni);
 
-		// DescuentoCliente
-		public String obtieneDescuento(String jsonDni);
+	// DescuentoCliente
+	public String obtieneDescuento(String jsonDni);
 
-		// RegistroPedido
-		public String registraPedido(String jsonPedido);
+	// RegistroPedido
+	public String registraPedido(String jsonPedido);
 }

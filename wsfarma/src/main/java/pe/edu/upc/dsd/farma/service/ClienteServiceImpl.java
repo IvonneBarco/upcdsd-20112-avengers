@@ -7,7 +7,6 @@ import javax.jws.WebService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import pe.edu.upc.dsd.farma.dao.ClienteDao;
-import pe.edu.upc.dsd.farma.dao.PedidoDao;
 import pe.edu.upc.dsd.farma.model.Cliente;
 import pe.edu.upc.dsd.farma.model.Pedido;
 import pe.edu.upc.dsd.farma.model.PedidoCliente;
@@ -16,9 +15,7 @@ import pe.edu.upc.dsd.farma.model.PedidoCliente;
 public class ClienteServiceImpl implements ClienteService{
 	
 	@Autowired
-	private ClienteDao clienteDao; 
-	@Autowired
-	private PedidoDao pedidoDao; 
+	private ClienteDao clienteDao;  
 	
 	@Override
 	public String registraCliente(Cliente cliente) {
@@ -28,7 +25,6 @@ public class ClienteServiceImpl implements ClienteService{
 
 	@Override
 	public String registraPedido(Pedido pedido) {
-		pedidoDao.insertarPedido(pedido);
 		return "Pedido registrado";
 	}
 	
