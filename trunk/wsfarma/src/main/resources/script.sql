@@ -16,8 +16,8 @@ create table cliente(
 
 create table pedido(
 	numero integer primary key,
-	fecha varchar(10),
 	dniCliente varchar(8),
+	fecha varchar(10),
 	subImporte double,
 	importeFinal double
 );
