@@ -37,20 +37,17 @@ public class AppFarmaciaActivity extends Activity {
 				String username=txtUserName.getText().toString();
 				String password=txtPassword.getText().toString();
 				if (username.equalsIgnoreCase("admin")&& password.equals("admin12")){
-					//Creamos el Intent
+					
 					lblInformacion.setText("");
+					//Creamos el Intent
 	            	Intent intent = new Intent(AppFarmaciaActivity.this, ListaPedidoActivity.class);
-	            	
 	            	//Creamos la información a pasar entre actividades
 	            	Bundle b = new Bundle(); 
 	            	b.putString("NOMBRE", username);
-	            	
 	            	//Añadimos la información al intent
 	            	intent.putExtras(b);
-	  
 	            	//Iniciamos la nueva actividad
 	                startActivity(intent);
-	               
 				}else{
 					lblInformacion.setText("El inicio de sesion ha fallado. Usuario/Password incorrecto.");
 					txtUserName.setText("");
