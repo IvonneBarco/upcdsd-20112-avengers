@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 
 import pe.edu.upc.dsd.farma.dao.ClienteDao;
 import pe.edu.upc.dsd.farma.model.Cliente;
+import pe.edu.upc.dsd.farma.model.Mensaje;
 
 @Path("clienteRest")
 @Produces("text/plain")
@@ -25,37 +26,10 @@ public class ClienteRest {
 	private ClienteDao clienteDao;
 
 	@POST
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Path("/registrar")
-	public String registraCliente(@FormParam("DNI") String DNI,
-			@FormParam("Nombre") String Nombre,
-			@FormParam("Direccion") String Direccion,
-			@FormParam("Telefono") String Telefono,
-			@FormParam("Distrito") String Distrito,
-			@FormParam("Email") String Email,
-			@FormParam("Password") String Password,
-			@FormParam("FlagNotif") String FlagNotif) {
-
-		Cliente cliente = new Cliente();
-		cliente.setStrDNI(DNI);
-		cliente.setStrNombre(Nombre);
-		cliente.setStrDireccion(Direccion);
-		cliente.setStrTelefono(Telefono);
-		cliente.setStrDistrito(Distrito);
-		cliente.setStrEmail(Email);
-		cliente.setStrPassword(Password);
-		cliente.setStrFlagNotif(FlagNotif);
-
-		clienteDao.insertarCliente(cliente);
-
-		return "Cliente registrado : " + Nombre;
-	}
-
-	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Path("/ingresar")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/registrar")
 	public String ingresaCliente(String json) {
-		// TODO: Terminar de implementar
 		// Json Ejemplo :
 		/*
 		 * { "strDNI":"44992694", "strNombre":"Daniel",
@@ -64,21 +38,20 @@ public class ClienteRest {
 		 * "strPassword":"abc123", "strFlagNotif":"Si" }
 		 */
 		
-		System.out.println(json);
-		
 		Gson gson = new Gson();
+		
 		Cliente cliente = gson.fromJson(json, Cliente.class);
 			
 		clienteDao.insertarCliente(cliente);
 		
-		return "Cliente registrado : " + cliente.getStrEmail();
+		Mensaje message = new Mensaje();
+		message.setError(false);
+		message.setSuccess(true);
+		message.setDescripcion("Cliente Registrado");
+		
+		return gson.toJson(message, Mensaje.class);
+		
 	}
 
-	@GET
-	@Consumes(MediaType.TEXT_PLAIN)
-	@Path("/obtiene/{nombre}")
-	public String obtieneCliente(@PathParam("nombre") String nombre) {
-		// clienteDao.insertarCliente(cliente);
-		return "Cliente registrado : " + nombre;
-	}
+
 }
