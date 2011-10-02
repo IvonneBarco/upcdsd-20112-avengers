@@ -28,6 +28,7 @@
 	
 	<bean id="clienteRest" class="pe.edu.upc.dsd.farma.service.rest.ClienteRest" />
 	<bean id="despachoRest" class="pe.edu.upc.dsd.farma.service.rest.DespachoRest" />
+	<bean id="entregaRest" class="pe.edu.upc.dsd.farma.service.rest.EntregaRest" />
 	
 	<!-- endPoints -->
 	<jaxws:endpoint id="clienteEndpoint" implementor="#clienteService"
@@ -42,6 +43,7 @@
 		<jaxrs:serviceBeans>
 			<ref bean="clienteRest" />
 			<ref bean="despachoRest" />
+			<ref bean="entregaRest" />
 		</jaxrs:serviceBeans>
 	</jaxrs:server>
 	
