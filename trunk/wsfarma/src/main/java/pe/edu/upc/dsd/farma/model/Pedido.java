@@ -8,6 +8,7 @@ public class Pedido {
 	private String fecha;
 	private double subImporte;
 	private double importeFinal;
+	private int estado;
 	private List<DetallePedido> detalle;
 
 	public int getNumero() {
@@ -48,6 +49,14 @@ public class Pedido {
 
 	public void setImporteFinal(double importeFinal) {
 		this.importeFinal = importeFinal;
+	}
+
+	public int getEstado() {
+		return estado;
+	}
+
+	public void setEstado(int estado) {
+		this.estado = estado;
 	}
 
 	public List<DetallePedido> getDetalle() {
