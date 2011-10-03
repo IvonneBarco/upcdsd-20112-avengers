@@ -28,7 +28,7 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 	public void insertarPedido(Pedido pedido) {
 		// Cabecera
 		getSimpleJdbcTemplate()
-				.update("insert into pedido(numero, dniCliente, estadoPedido, fecha, subImporte, importeFinal) values(?, ?, ?, ?, ?)",
+				.update("insert into pedido(numero, dniCliente, estadoPedido, fecha, subImporte, importeFinal) values(?, ?, ?, ?, ?, ?)",
 						pedido.getNumero(), pedido.getDniCliente(), 0,
 						pedido.getFecha(), pedido.getSubImporte(),
 						pedido.getImporteFinal());
@@ -36,14 +36,13 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 		// Detalle
 		for (DetallePedido detalle : pedido.getDetalle())
 			getSimpleJdbcTemplate()
-					.update("insert into pedidoDetalle(numeroPedido, itemPedido, codigoProducto,cantidad, importe, total) "
-							+ "values(?, ?, ?, ?, ?, ?, ?)",
+					.update("insert into pedidoDetalle(numeroPedido, itemPedido, codigoProducto, cantidad, importe, total) "
+							+ "values(?, ?, ?, ?, ?, ?)",
 							detalle.getNumeroPedido(), detalle.getItemPedido(),
-							detalle.getCodigoProducto(),
-							detalle.getCantidad(), detalle.getImporte(),
-							detalle.getTotal());
+							detalle.getCodigoProducto(), detalle.getCantidad(),
+							detalle.getImporte(), detalle.getTotal());
 	}
-	
+
 	@Override
 	public List<DetallePedido> listaDetallePedido(int numeroPedido) {
 
@@ -62,15 +61,15 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 
 	@Override
 	public List<PedidoDespacho> listaPedidosDespacho() {
-		//Cambiar a Constantes
+		// Cambiar a Constantes
 		int estadoPorDespachar = 0;
-				
+
 		try {
 			return getSimpleJdbcTemplate().query(
-					"select	p.numero, p.fecha, c.telefono, c.nombre as nombreCliente " +
-					"from	pedido p inner join cliente c " +
-					"on	( p.dniCliente = c.DNI ) " +
-					"where	p.estadoPedido = ?",
+					"select	p.numero, p.fecha, c.telefono, c.nombre as nombreCliente "
+							+ "from	pedido p inner join cliente c "
+							+ "on	( p.dniCliente = c.DNI ) "
+							+ "where	p.estadoPedido = ?",
 					new BeanPropertyRowMapper<PedidoDespacho>(
 							PedidoDespacho.class), estadoPorDespachar);
 
@@ -82,15 +81,15 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 
 	@Override
 	public List<PedidoEntrega> listaPedidosEntrega() {
-		//Cambiar a Constantes
-		int estadoPorEntregar = 1; 
-		
+		// Cambiar a Constantes
+		int estadoPorEntregar = 1;
+
 		try {
 			return getSimpleJdbcTemplate().query(
-					"select	p.numero, c.distrito, c.direccion, c.nombre as nombreCliente " +
-							"from	pedido p inner join cliente c " +
-							"on	( p.dniCliente = c.DNI ) " +
-							"where	p.estadoPedido = ?",
+					"select	p.numero, c.distrito, c.direccion, c.nombre as nombreCliente "
+							+ "from	pedido p inner join cliente c "
+							+ "on	( p.dniCliente = c.DNI ) "
+							+ "where	p.estadoPedido = ?",
 					new BeanPropertyRowMapper<PedidoEntrega>(
 							PedidoEntrega.class), estadoPorEntregar);
 
@@ -98,6 +97,13 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 			// TODO Auto-generated catch block
 			return null;
 		}
+	}
+
+	@Override
+	public void actualizarEstadoPedido(int numeroPedido, int estado) {
+		getSimpleJdbcTemplate().update(
+				"update pedido set estadoPedido=? where numero=?", estado,
+				numeroPedido);
 	}
 
 }
