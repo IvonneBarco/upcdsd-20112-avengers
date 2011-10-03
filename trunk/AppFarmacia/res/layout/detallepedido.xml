@@ -1,36 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content">
- 
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_width="wrap_content"
+  	android:layout_height="wrap_content"
+  	android:orientation="vertical">
+
 	<TextView android:id="@+id/Pedido"
 		android:textSize="20dp"
     	android:layout_height="wrap_content"
     	android:layout_width="fill_parent"
-    	android:text="Pedido Nro: 0001"/>
-    <TextView 
-    	android:layout_height="wrap_content"
-    	android:layout_width="fill_parent"
-    	android:text="Cliente:"/>
-    <TextView android:id="@+id/Cliente"
-    	android:layout_height="wrap_content"
-    	android:layout_width="fill_parent"
-    	android:text="Asoc. Los Pobres"/>
- 	<TextView 
-    	android:layout_height="wrap_content"
-    	android:layout_width="fill_parent"
-    	android:text="Fecha:"/>
-    <TextView android:id="@+id/Cliente"
-    	android:layout_height="wrap_content"
-    	android:layout_width="fill_parent"
-    	android:text="01/02/2011"/>
-    <TextView 
-    	android:layout_height="wrap_content"
-    	android:layout_width="fill_parent"
-    	android:text="Despacho:"/>
-    <TextView android:id="@+id/Cliente"
-    	android:layout_height="wrap_content"
-    	android:layout_width="fill_parent"
-    	android:text="Las Dunas 666 Puente Piedra"/>
+    	android:text="Pedido Nro: 0001"
+    	android:layout_marginBottom="15dp"/>
+    <LinearLayout
+        		android:orientation="horizontal"
+    			android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:layout_marginBottom="4dp">
+    	<TextView 
+    			android:layout_height="wrap_content"
+    			android:layout_width="fill_parent"
+    			android:text="Cliente: "/>
+    	<TextView 
+    			android:id="@+id/Cliente"
+    			android:layout_height="wrap_content"
+    			android:layout_width="fill_parent"
+    			android:text="Asoc. Los Pobres"/>
+    </LinearLayout>
+    <LinearLayout
+        		android:orientation="horizontal"
+    			android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:layout_marginBottom="4dp">
+ 		<TextView 
+    			android:layout_height="wrap_content"
+    			android:layout_width="fill_parent"
+    			android:text="Fecha: "/>
+    	<TextView 
+    			android:id="@+id/Cliente"
+    			android:layout_height="wrap_content"
+    			android:layout_width="fill_parent"
+    			android:text="01/02/2011"/>
+    </LinearLayout>
+    <LinearLayout
+        		android:orientation="horizontal"
+    			android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:layout_marginBottom="4dp">
+    	<TextView 
+    			android:layout_height="wrap_content"
+    			android:layout_width="fill_parent"
+    			android:text="Despacho: "/>
+    	<TextView 
+    			android:id="@+id/Cliente"
+    			android:layout_height="wrap_content"
+    			android:layout_width="fill_parent"
+    			android:text="Las Dunas 666 Puente Piedra"/>
+    </LinearLayout>
 </LinearLayout>
