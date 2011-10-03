@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +15,7 @@ import com.google.gson.Gson;
 
 import pe.edu.upc.dsd.farma.dao.PedidoDao;
 import pe.edu.upc.dsd.farma.model.Mensaje;
+import pe.edu.upc.dsd.farma.model.Pedido;
 import pe.edu.upc.dsd.farma.model.PedidoDespacho;
 
 @Path("despachoRest")
@@ -35,10 +37,21 @@ public class DespachoRest implements IDespacho {
 		return gson.toJson(lista);
 	}
 
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/actualizar")
 	@Override
 	public String actualizaPedido(String jsonNumeroPedido) {
-		// TODO Auto-generated method stub
-		return null;
+		Pedido pedido = gson.fromJson(jsonNumeroPedido, Pedido.class);
+		
+		pedidoDao.actualizarEstadoPedido(pedido.getNumero(), pedido.getEstado());
+		
+		message.setSuccess(true);
+		message.setError(false);
+		message.setDescripcion("Estado actualizado");
+		
+		return gson.toJson(message);
 	}
 
 }

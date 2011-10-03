@@ -20,4 +20,6 @@ public interface PedidoDao {
 	//Lista Pedido Por Entregar
 	public List<PedidoEntrega> listaPedidosEntrega(); 
 	
+	//Actualiza el estado del pedido
+	public void actualizarEstadoPedido(int numeroPedido, int estado);
 }
