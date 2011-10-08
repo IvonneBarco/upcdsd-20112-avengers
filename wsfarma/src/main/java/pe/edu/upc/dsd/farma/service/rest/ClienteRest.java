@@ -2,7 +2,6 @@ package pe.edu.upc.dsd.farma.service.rest;
 
 import java.util.Hashtable;
 import java.util.List;
-import java.util.Map;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
@@ -17,9 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import pe.edu.upc.dsd.farma.dao.ClienteDao;
 import pe.edu.upc.dsd.farma.dao.PedidoDao;
+import pe.edu.upc.dsd.farma.dao.ProductoDao;
 import pe.edu.upc.dsd.farma.model.Cliente;
 import pe.edu.upc.dsd.farma.model.Mensaje;
 import pe.edu.upc.dsd.farma.model.Pedido;
+import pe.edu.upc.dsd.farma.model.Producto;
 
 import com.google.gson.Gson;
 
@@ -31,6 +32,9 @@ public class ClienteRest implements ICliente {
 	private ClienteDao clienteDao;
 	@Autowired
 	private PedidoDao pedidoDao;
+	@Autowired
+	private ProductoDao productoDao;
+	
 	private Mensaje message = new Mensaje();
 	private Gson gson = new Gson();
 
@@ -112,5 +116,13 @@ public class ClienteRest implements ICliente {
 		
 		return gson.toJson(message, Mensaje.class);
 	}
-
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/producto")
+	@Override
+	public String listarProducto() {
+		List<Producto> lista = productoDao.listarProducto();
+		return gson.toJson(lista);
+	}
 }
