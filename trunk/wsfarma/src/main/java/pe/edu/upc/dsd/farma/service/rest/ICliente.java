@@ -16,4 +16,7 @@ public interface ICliente {
 
 	// RegistroPedido
 	public String registraPedido(String jsonPedido);
+	
+	//Listar Producto
+	public String listarProducto();
 }
