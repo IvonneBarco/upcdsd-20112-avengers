@@ -4,6 +4,7 @@ import java.util.Hashtable;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -113,6 +114,24 @@ public class ClienteRest implements ICliente {
 		message.setSuccess(true);
 		message.setError(false);
 		message.setDescripcion("Pedido Registrado");
+		
+		return gson.toJson(message, Mensaje.class);
+	}
+	
+	@DELETE
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/anularPedido")
+	@Override
+	public String anulaPedido(String jsonPedido) {
+		
+		Pedido pedido = gson.fromJson(jsonPedido, Pedido.class);
+		System.out.println("Numero Pedido :" + pedido.getNumero() + "  , estado : " + pedido.getEstado());
+		pedidoDao.actualizarEstadoPedido(pedido.getNumero(), pedido.getEstado());
+		
+		message.setSuccess(true);
+		message.setError(false);
+		message.setDescripcion("Pedido Anulado");
 		
 		return gson.toJson(message, Mensaje.class);
 	}
