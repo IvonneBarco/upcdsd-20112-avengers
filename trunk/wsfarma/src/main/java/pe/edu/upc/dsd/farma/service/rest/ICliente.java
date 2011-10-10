@@ -19,4 +19,8 @@ public interface ICliente {
 	
 	//Listar Producto
 	public String listarProducto();
+	
+	//Anular Pedido
+	public String anulaPedido(String jsonPedido);
+	
 }
