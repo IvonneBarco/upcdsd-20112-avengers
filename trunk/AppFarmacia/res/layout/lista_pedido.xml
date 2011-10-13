@@ -19,11 +19,18 @@
 		android:layout_height="wrap_content" 
 		android:textStyle="normal"
 		android:textSize="12px" />
+		
+	<TextView 
+		android:id="@+id/lblTelefono" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" 
+		android:textStyle="normal"
+		android:textSize="12px" />
+		
 	<TextView 
 		android:id="@+id/lblFecha" 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" 
 		android:textStyle="normal"
 		android:textSize="12px" />
-		
 </LinearLayout>

@@ -5,7 +5,7 @@
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="7" />
 
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+    <application android:icon="@drawable/farmaciaicon" android:label="@string/app_name">
         <activity android:name=".AppFarmaciaActivity"
                   android:label="@string/app_name">
             <intent-filter>
@@ -15,5 +15,7 @@
         </activity>
 		<activity android:name=".ListaPedidoActivity"></activity>
 		<activity android:name=".DetallePedidoActivity"></activity>
+		
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
