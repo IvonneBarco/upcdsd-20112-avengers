@@ -1,10 +1,12 @@
 package pe.edu.upc.dsd.appfarmacia;
 
+import java.util.List;
+
 import pe.edu.upc.dsd.appfarmacia.model.PedidoResumen;
+import pe.edu.upc.dsd.appfarmacia.service.PedidosService;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-//import android.content.Context;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -17,21 +19,20 @@ import android.widget.TextView;
 public class ListaPedidoActivity extends Activity {
 	
 	private ListView lstopciones;
-	private PedidoResumen[] datos = new PedidoResumen[25];
+	private List<PedidoResumen> datos=null;
+	private PedidosService pedidoService = null;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla2);
         
-        for(int i=1; i<=25; i++)
-        	datos[i-1] = new PedidoResumen("Pedido " + i, 
-        									"Cliente usuarioRegistrado" + i,
-        									"Fecha de Pedido: 19-Set-2011");
+        pedidoService= new PedidosService(this);
+        datos=pedidoService.getListas();
         AdaptadorPedido adaptador = new AdaptadorPedido(this);
         lstopciones = (ListView)findViewById(R.id.lstOpciones);
         lstopciones.setAdapter(adaptador);
-        
+                
         lstopciones.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
@@ -64,8 +65,9 @@ public class ListaPedidoActivity extends Activity {
         			item = inflater.inflate(R.layout.lista_pedido, null);
         			
         			holder = new ViewHolder();
-        			holder.numpedido = (TextView)item.findViewById(R.id.lblnumPedido);
-        			holder.cliente = (TextView)item.findViewById(R.id.lblCliente);
+        			holder.numero = (TextView)item.findViewById(R.id.lblnumPedido);
+        			holder.nombreCliente = (TextView)item.findViewById(R.id.lblCliente);
+        			holder.telefono = (TextView)item.findViewById(R.id.lblTelefono);
         			holder.fecha = (TextView)item.findViewById(R.id.lblFecha);
         			item.setTag(holder);
         		}
@@ -74,32 +76,19 @@ public class ListaPedidoActivity extends Activity {
         			holder = (ViewHolder)item.getTag();
         		}
     			
-    			holder.numpedido.setText(datos[position].getNumeroPedido());
-    			holder.cliente.setText(datos[position].getCliente());
-    			holder.fecha.setText(datos[position].getFecha());
+    			holder.numero.setText("Pedido Nro: "+datos.get(position).getNumeroPedido());
+    			holder.nombreCliente.setText("Cliente: " +datos.get(position).getCliente());
+    			holder.telefono.setText("Telefono: " + datos.get(position).getTelefono());
+    			holder.fecha.setText("Fecha: " + datos.get(position).getFecha());
     			return(item);
     		}
         }
         
     static class ViewHolder {
-       	TextView numpedido;
-       	TextView cliente;
+       	TextView numero;
+       	TextView nombreCliente;
+       	TextView telefono;
        	TextView fecha;
     }
-        
-        
-        /*
-        lstopciones.setOnItemClickListener(
-                new AdapterView.OnItemClickListener() {
 
-				@Override
-				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int arg2, long arg3) {
-					//txtmensaje.setText("Seleccionado: " + datos[position]);
-				}
-        });*/
-        /*
-        TextView txtmensaje= (TextView)findViewById(R.id.txtMensaje);
-        Bundle bundle= getIntent().getExtras();
-        txtmensaje.setText("Hola como estas " + bundle.getString("NOMBRE"));*/
 }

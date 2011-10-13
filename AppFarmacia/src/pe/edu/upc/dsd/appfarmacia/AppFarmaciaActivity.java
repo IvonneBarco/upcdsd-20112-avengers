@@ -3,6 +3,7 @@ package pe.edu.upc.dsd.appfarmacia;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -28,7 +29,7 @@ public class AppFarmaciaActivity extends Activity {
         btnAceptar=(Button)findViewById(R.id.btnAceptar);
         btnCancelar=(Button)findViewById(R.id.btnCancelar);
         lblInformacion=(TextView)findViewById(R.id.lblerror);
-        
+        try{
         btnAceptar.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -64,5 +65,9 @@ public class AppFarmaciaActivity extends Activity {
 				finish();
 			}
 		});
+        }catch (Exception e) {
+			// TODO: handle exception
+        	Log.v("Inicio: ", "Esto era"+e.toString());
+		}
     }
 }
