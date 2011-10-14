@@ -3,6 +3,7 @@ package pe.edu.upc.dsd.farma.dao;
 import java.util.List;
 
 import pe.edu.upc.dsd.farma.model.DetallePedido;
+import pe.edu.upc.dsd.farma.model.DetallePedidoAlmacen;
 import pe.edu.upc.dsd.farma.model.Pedido;
 import pe.edu.upc.dsd.farma.model.PedidoDespacho;
 import pe.edu.upc.dsd.farma.model.PedidoEntrega;
@@ -22,4 +23,10 @@ public interface PedidoDao {
 	
 	//Actualiza el estado del pedido
 	public void actualizarEstadoPedido(int numeroPedido, int estado);
+	
+	//Lista los Pedidos;
+	public List<Pedido> listaPedido();
+	
+	//Lista Detalle Personalizado
+	public List<DetallePedidoAlmacen> verDetallePedido(int numeroPedido);
 }
