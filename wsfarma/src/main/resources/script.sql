@@ -2,6 +2,7 @@ drop table cliente if exists;
 drop table pedido if exists;
 drop table pedidoDetalle if exists;
 drop table producto if exists;
+drop table almacen_user if exists;
 
 create table cliente(
 	DNI varchar(8) primary key,
@@ -38,6 +39,12 @@ create table producto(
 	unidMedida varchar(3),
 	precio double,
 );
+
+create table almacen_user(
+	userid varchar(8) primary key,
+	password varchar(8),
+);
+
 
 insert into cliente values('43113358', 'Juan Perez', 'Av. Avenida 123', '2108989', 'San Isidro', 'mail@mail.com', '', 'abc');
 insert into cliente values('08065525', 'Elsa Pito', 'Jr. Chancay 500', '4278101', 'Cercado', 'mail@correo.com', '', '12346');
@@ -89,3 +96,6 @@ insert into pedidoDetalle values(7, 1, 'P0000015', 1, 10.00, 10.00);
 insert into pedidoDetalle values(8, 1, 'P0000011', 2, 4.50, 9.00);
 insert into pedidoDetalle values(9, 1, 'P0000005', 1, 20.00, 20.00);
 insert into pedidoDetalle values(9, 2, 'P0000012', 1, 9.00, 9.00);
+
+
+insert into almacen_user values ('admin','admin12');
