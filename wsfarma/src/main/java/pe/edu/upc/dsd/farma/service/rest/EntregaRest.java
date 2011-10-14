@@ -21,7 +21,7 @@ public class EntregaRest implements IEntrega {
 	
 	@Autowired
 	private PedidoDao pedidoDao;
-	
+	//-- PENDIENTE DE USO --
 	private Mensaje message = new Mensaje();
 	private Gson gson = new Gson();
 	
