@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import pe.edu.upc.dsd.farma.dao.PedidoDao;
 import pe.edu.upc.dsd.farma.model.DetallePedido;
+import pe.edu.upc.dsd.farma.model.DetallePedidoAlmacen;
 import pe.edu.upc.dsd.farma.model.Pedido;
 import pe.edu.upc.dsd.farma.model.PedidoDespacho;
 import pe.edu.upc.dsd.farma.model.PedidoEntrega;
@@ -105,5 +106,34 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 				"update pedido set estadoPedido=? where numero=?", estado,
 				numeroPedido);
 	}
+	
+	public List<Pedido> listaPedido(){
+		String sql="select * from pedido";
+		List<Pedido> listadoPedidos;
+		try{
+			listadoPedidos=getSimpleJdbcTemplate().query(sql, new BeanPropertyRowMapper<Pedido>(Pedido.class));
+		}catch (EmptyResultDataAccessException e) {
+			// TODO: handle exception
+			return null;
+		}
+		return listadoPedidos;
+	}
+	
+	public List<DetallePedidoAlmacen> verDetallePedido(int numeroPedido) {
+
+		try {
+			return getSimpleJdbcTemplate().query(
+					"select pd.numeroPedido, pd.itemPedido, pd.codigoProducto,p.descripcion, pd.cantidad "
+							+ "from	pedidoDetalle pd inner join producto p ON (pd.codigoProducto=p.codigo) " +
+							"where	pd.numeroPedido = ?",
+					new BeanPropertyRowMapper<DetallePedidoAlmacen>(
+							DetallePedidoAlmacen.class), numeroPedido);
+
+		} catch (EmptyResultDataAccessException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+	}
+
 
 }
