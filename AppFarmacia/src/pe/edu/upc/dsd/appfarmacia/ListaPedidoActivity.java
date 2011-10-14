@@ -19,6 +19,10 @@ import android.widget.TextView;
 public class ListaPedidoActivity extends Activity {
 	
 	private ListView lstopciones;
+	private TextView lblnumPedido;
+	private TextView lblCliente;
+	private TextView lblfecha;
+	private TextView lbltelefono;
 	private List<PedidoResumen> datos=null;
 	private PedidosService pedidoService = null;
 	
@@ -36,8 +40,21 @@ public class ListaPedidoActivity extends Activity {
         lstopciones.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-                //Acciones necesarias al hacer click
+            	
+            	lblnumPedido = (TextView)v.findViewById(R.id.lblnumPedido);
+            	lblCliente=(TextView)v.findViewById(R.id.lblCliente);
+            	lblfecha=(TextView)v.findViewById(R.id.lblFecha);
+            	lbltelefono=(TextView)v.findViewById(R.id.lblTelefono);
+            	
             	Intent intent=new Intent(ListaPedidoActivity.this,DetallePedidoActivity.class);
+            	
+            	Bundle b=new Bundle();
+            	b.putString("NROPEDIDO", lblnumPedido.getText().toString());
+            	b.putString("NOMBRECLIENTE",lblCliente.getText().toString());
+            	b.putString("FECHAPEDIDO",lblfecha.getText().toString());
+            	b.putString("TELEFONOCLIENTE", lbltelefono.getText().toString());
+            	
+            	intent.putExtras(b);
             	startActivity(intent);
             }
         });
