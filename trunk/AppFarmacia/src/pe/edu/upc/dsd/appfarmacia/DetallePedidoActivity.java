@@ -8,7 +8,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 public class DetallePedidoActivity extends Activity {
-	private GridView grilla;
+	//private GridView grilla;
 	private TextView txtnumpedido;
 	private TextView txtcliente;
 	private TextView txtfecha;
@@ -34,10 +34,10 @@ public class DetallePedidoActivity extends Activity {
         for(int i=1;i<=25;i++){
         	datos[i-1]="Dato"+1;
         }
-        ArrayAdapter<String> adaptador =
-            new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos);
-       grilla = (GridView)findViewById(R.id.GridOpciones);
-       grilla.setAdapter(adaptador);
+        //ArrayAdapter<String> adaptador =
+          //  new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos);
+       //grilla = (GridView)findViewById(R.id.GridOpciones);
+       //grilla.setAdapter(adaptador);
 	}   
 
 }
