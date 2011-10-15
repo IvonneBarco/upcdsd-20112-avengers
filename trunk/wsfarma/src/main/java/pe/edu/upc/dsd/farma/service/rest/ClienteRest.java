@@ -26,6 +26,7 @@ import pe.edu.upc.dsd.farma.model.DetallePedido;
 import pe.edu.upc.dsd.farma.model.Mensaje;
 import pe.edu.upc.dsd.farma.model.Pedido;
 import pe.edu.upc.dsd.farma.model.Producto;
+import pe.edu.upc.dsd.farma.model.ResponseSecuencial;
 
 import com.google.gson.Gson;
 
@@ -183,9 +184,9 @@ public class ClienteRest implements ICliente {
 	public String obtieneSecuencial() {
 		
 		int secuencial = pedidoDao.obtieneSecuencial();
+		ResponseSecuencial response = new ResponseSecuencial();
+		response.setNumero(secuencial);
 		
-		String retorno = gson.toJson(secuencial);
-		
-		return retorno;
+		return  gson.toJson(response, ResponseSecuencial.class);
 	}
 }
