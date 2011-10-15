@@ -12,14 +12,14 @@ public class AppDaoImp implements AppDao {
 	
 	public AppDaoImp(Context context) {
 		this.context = context;
-		this.urlBase="http://10.0.2.2:8080/wsfarma/rest/despachoRest/";
+		this.urlBase="http://10.0.2.2:8080/wsfarma/rest/";
 	}
 
 
 	@Override
 	public String getListas() {
 		// TODO Auto-generated method stub
-		String urlRequest = getUrlBase()+"listar";
+		String urlRequest = getUrlBase()+"despachoRest/listar";
 		Log.d("Ruta WS", urlRequest);
 		String jsonListaPedidos = "";
 		try{
@@ -45,7 +45,7 @@ public class AppDaoImp implements AppDao {
 	@Override
 	public String getDetallePedido(int pedido) {
 		// TODO Auto-generated method stub
-		String urlRequest = getUrlBase()+"/almacenRest/detallePedido/"+pedido;
+		String urlRequest = getUrlBase()+"almacenRest/detallePedido/"+pedido;
 		String jsonListaPedidos = "";
 		try{
 			jsonListaPedidos=PeticionHttp.realizarPeticion(urlRequest);

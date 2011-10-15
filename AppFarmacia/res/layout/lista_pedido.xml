@@ -5,32 +5,72 @@
 		android:layout_width="wrap_content" 
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
-
-	<TextView 
-		android:id="@+id/lblnumPedido" 
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" 
-		android:textStyle="bold"
-		android:textSize="20px" />
-
-	<TextView 
-		android:id="@+id/lblCliente" 
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" 
-		android:textStyle="normal"
-		android:textSize="12px" />
-		
-	<TextView 
-		android:id="@+id/lblTelefono" 
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" 
-		android:textStyle="normal"
-		android:textSize="12px" />
-		
-	<TextView 
-		android:id="@+id/lblFecha" 
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content" 
-		android:textStyle="normal"
-		android:textSize="12px" />
+		<LinearLayout 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<TextView  
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:textStyle="bold"
+				android:textSize="20px"
+				android:text="Pedido Nro: " />
+			<TextView 
+				android:id="@+id/lblnumPedido" 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:textStyle="bold"
+				android:textSize="20px" />
+		</LinearLayout>
+		<LinearLayout 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<TextView  
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:textStyle="normal"
+				android:textSize="12px"
+				android:text="Cliente: " />
+			<TextView 
+				android:id="@+id/lblCliente" 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:textStyle="normal"
+				android:textSize="12px" />
+		</LinearLayout>
+		<LinearLayout 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<TextView  
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:textStyle="normal"
+				android:textSize="12px"
+				android:text="Telefono: " />	
+			<TextView 
+				android:id="@+id/lblTelefono" 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:textStyle="normal"
+				android:textSize="12px" />
+		</LinearLayout>
+		<LinearLayout 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<TextView  
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:textStyle="normal"
+				android:textSize="12px"
+				android:text="Fecha: " />
+			<TextView 
+				android:id="@+id/lblFecha" 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content" 
+				android:textStyle="normal"
+				android:textSize="12px" />
+		</LinearLayout>
 </LinearLayout>

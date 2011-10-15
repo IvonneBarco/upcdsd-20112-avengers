@@ -4,12 +4,23 @@
   	android:layout_width="fill_parent"
   	android:layout_height="wrap_content"
   	android:orientation="vertical">
-
+  	<LinearLayout
+        		android:orientation="horizontal"
+    			android:layout_width="wrap_content"
+    			android:layout_height="wrap_content"
+    			android:layout_marginBottom="4dp">
+	<TextView 
+		android:textSize="20dp"
+    	android:layout_height="wrap_content"
+    	android:layout_width="fill_parent"
+    	android:layout_marginBottom="15dp"
+    	android:text="Pedido Nro: "/>
 	<TextView android:id="@+id/Pedido"
 		android:textSize="20dp"
     	android:layout_height="wrap_content"
     	android:layout_width="fill_parent"
     	android:layout_marginBottom="15dp"/>
+    </LinearLayout>
     <LinearLayout
         		android:orientation="horizontal"
     			android:layout_width="wrap_content"
@@ -18,12 +29,11 @@
     	<TextView 
     			android:layout_height="wrap_content"
     			android:layout_width="fill_parent"
-    			android:text=""/>
+    			android:text="Cliente: "/>
     	<TextView 
     			android:id="@+id/Cliente"
     			android:layout_height="wrap_content"
-    			android:layout_width="fill_parent"
-    			android:text="Asoc. Los Pobres"/>
+    			android:layout_width="fill_parent"/>
     </LinearLayout>
     <LinearLayout
         		android:orientation="horizontal"
@@ -33,12 +43,11 @@
  		<TextView 
     			android:layout_height="wrap_content"
     			android:layout_width="fill_parent"
-    			android:text=""/>
+    			android:text="Fecha: "/>
     	<TextView 
     			android:id="@+id/Fecha"
     			android:layout_height="wrap_content"
-    			android:layout_width="fill_parent"
-    			android:text="01/02/2011"/>
+    			android:layout_width="fill_parent"/>
     </LinearLayout>
     <LinearLayout
         		android:orientation="horizontal"
@@ -48,7 +57,7 @@
     	<TextView 
     			android:layout_height="wrap_content"
     			android:layout_width="fill_parent"
-    			android:text=""/>
+    			android:text="Telefono: "/>
     	<TextView 
     			android:id="@+id/Telefono"
     			android:layout_height="wrap_content"

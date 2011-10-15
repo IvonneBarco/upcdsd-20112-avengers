@@ -14,7 +14,7 @@ public class DetallePedidoActivity extends Activity {
 	private TextView txtfecha;
 	private TextView txttelefono;
 	
-	private String[] datos= new String[25];
+	//private String[] datos= new String[25];
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +31,9 @@ public class DetallePedidoActivity extends Activity {
         txtfecha.setText(bundle.getString("FECHAPEDIDO"));
         txttelefono.setText(bundle.getString("TELEFONOCLIENTE"));
         
-        for(int i=1;i<=25;i++){
+        /*for(int i=1;i<=25;i++){
         	datos[i-1]="Dato"+1;
-        }
+        }*/
         //ArrayAdapter<String> adaptador =
           //  new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, datos);
        //grilla = (GridView)findViewById(R.id.GridOpciones);
