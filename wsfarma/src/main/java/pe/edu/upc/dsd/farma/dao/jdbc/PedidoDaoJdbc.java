@@ -33,15 +33,7 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 						pedido.getNumero(), pedido.getDniCliente(), 0,
 						pedido.getFecha(), pedido.getSubImporte(),
 						pedido.getImporteFinal());
-
-		// Detalle
-		for (DetallePedido detalle : pedido.getDetalle())
-			getSimpleJdbcTemplate()
-					.update("insert into pedidoDetalle(numeroPedido, itemPedido, codigoProducto, cantidad, importe, total) "
-							+ "values(?, ?, ?, ?, ?, ?)",
-							detalle.getNumeroPedido(), detalle.getItemPedido(),
-							detalle.getCodigoProducto(), detalle.getCantidad(),
-							detalle.getImporte(), detalle.getTotal());
+			
 	}
 
 	@Override
@@ -133,6 +125,26 @@ public class PedidoDaoJdbc extends SimpleJdbcDaoSupport implements PedidoDao {
 			// TODO Auto-generated catch block
 			return null;
 		}
+	}
+
+	@Override
+	public void insertarDetallePedido(DetallePedido detalle) {
+		getSimpleJdbcTemplate()
+		.update("insert into pedidoDetalle(numeroPedido, itemPedido, codigoProducto, cantidad, importe, total) "
+				+ "values(?, ?, ?, ?, ?, ?)",
+				detalle.getNumeroPedido(), detalle.getItemPedido(),
+				detalle.getCodigoProducto(), detalle.getCantidad(),
+				detalle.getImporte(), detalle.getTotal());
+		
+	}
+
+	@Override
+	public int obtieneSecuencial() {
+		int secuencial;
+		
+		secuencial = getSimpleJdbcTemplate().queryForInt(" select max(numero) from pedido  ");
+		
+		return secuencial;
 	}
 
 

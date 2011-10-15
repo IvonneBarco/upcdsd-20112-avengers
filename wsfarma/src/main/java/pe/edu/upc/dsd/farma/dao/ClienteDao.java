@@ -3,6 +3,7 @@ package pe.edu.upc.dsd.farma.dao;
 import java.util.List;
 
 import pe.edu.upc.dsd.farma.model.Cliente;
+import pe.edu.upc.dsd.farma.model.DatosMensaje;
 import pe.edu.upc.dsd.farma.model.Pedido;
 
 public interface ClienteDao {
@@ -15,5 +16,8 @@ public interface ClienteDao {
 
 	// Obtiene Lista Pedidos
 	public List<Pedido> listaPedidos(String dni);
-
+	
+	// Obtiene Datos del pedido del cliente
+	public DatosMensaje obtieneDatos(int numeroPedido);
+	
 }

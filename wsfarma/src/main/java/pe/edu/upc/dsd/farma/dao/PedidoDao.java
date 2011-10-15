@@ -12,6 +12,12 @@ public interface PedidoDao {
 	//Registra Pedido
 	public void insertarPedido(Pedido pedido);
 	
+	//Obtiene Secuencial pedido
+	public int obtieneSecuencial();
+	
+	//Registra Detalle Pedido
+	public void insertarDetallePedido(DetallePedido detallePedido);
+	
 	//Lista Detalle Pedido
 	public List<DetallePedido> listaDetallePedido(int numeroPedido); 
 	
