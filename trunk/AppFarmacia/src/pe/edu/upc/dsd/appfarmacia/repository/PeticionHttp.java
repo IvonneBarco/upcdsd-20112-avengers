@@ -4,8 +4,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 //import javax.xml.parsers.DocumentBuilder;
 //import javax.xml.parsers.DocumentBuilderFactory;
@@ -38,6 +45,19 @@ public class PeticionHttp {
 		return jsonRespuesta;
 	}
 
+	public static synchronized String realizarPeticionPut(String urlPeticion,String jsonnumpedido) throws IOException{
+		HttpURLConnection urlConnection= null;
+		URL url = new URL(urlPeticion);
+		urlConnection=(HttpURLConnection)url.openConnection();
+		urlConnection.setDoOutput(true);
+		urlConnection.setRequestMethod("PUT");
+		Log.d("realizaPut",String.valueOf(urlConnection.getResponseCode()));
+		OutputStreamWriter out= new OutputStreamWriter(urlConnection.getOutputStream());
+		out.write(jsonnumpedido);
+		out.close();
+		return "";
+	}
+	
 	private static String parseResponse(InputStream inputStream) {
 		// TODO Auto-generated method stub
 		String jsonResponse="";
@@ -57,6 +77,15 @@ public class PeticionHttp {
 		}
 		return jsonResponse;
 	}
+	
+	/*public static String httppost(String urlPeticion)throws IOException{
+		URL url = new URL( urlPeticion );
+		HttpURLConnection con = (HttpURLConnection) url.openConnection();
+		con.setRequestMethod( "POST" );
+	    con.setDoInput( true );
+	    con.setDoOutput( true );
+	    
+	}*/
 
 	private static String readFromBuffer(BufferedReader bufferedReader) {
 		// TODO Auto-generated method stub

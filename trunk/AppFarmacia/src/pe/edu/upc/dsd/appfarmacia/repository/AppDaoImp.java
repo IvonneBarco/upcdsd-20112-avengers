@@ -13,6 +13,7 @@ public class AppDaoImp implements AppDao {
 	public AppDaoImp(Context context) {
 		this.context = context;
 		this.urlBase="http://10.0.2.2:8080/wsfarma/rest/";
+		//this.urlBase="http://192.168.42.129:8080/wsfarma/rest/";
 	}
 
 
@@ -34,7 +35,7 @@ public class AppDaoImp implements AppDao {
 
 	private String getUrlBase() {
 		// TODO Auto-generated method stub
-		Log.d("ListaPedidos","Url: "+urlBase);
+		//Log.d("ListaPedidos","Url: "+urlBase);
 		return urlBase;
 	}
 
@@ -54,6 +55,26 @@ public class AppDaoImp implements AppDao {
 			Log.e("ListaPedidos", e.getMessage());
 		}
 		return jsonListaPedidos;
+	}
+
+
+	@Override
+	public void actualizarEstadoPedido(String pedido) {
+		// TODO Auto-generated method stub
+		String urlRequest = "";
+		try {
+			urlRequest = getUrlBase() + "despachoRest/actualizar";
+			Log.d("UrlEstadoPedido", urlRequest);
+		} catch (Exception ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
+		try {
+			PeticionHttp.realizarPeticionPut(urlRequest, pedido);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			Log.e("actualizaestado dao", e.getMessage());
+		}
 	}
 	
 }
