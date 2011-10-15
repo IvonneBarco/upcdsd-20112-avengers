@@ -12,16 +12,8 @@ import pe.edu.upc.dsd.farma.service.DespachoService;
 @ContextConfiguration("/applicationContext-test.xml")
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DespachoServiceIntegrationTest {
-	@Autowired
-	private DespachoService despachoService;
-	
-	@Test
-	public void TestListaPedidos(){
-		Assert.assertEquals(null, despachoService.actualizaPedido(0));
-	}
-	
-	@Test
-	public void TestActualizaPedido(){
-		Assert.assertEquals(null, despachoService.listaPedidos());
-	}
+	/**
+	 * URL del servicio RESTful Despacho
+	 */
+	private String URL = "http://localhost:8080/wsfarma/rest/despachoRest";
 }
