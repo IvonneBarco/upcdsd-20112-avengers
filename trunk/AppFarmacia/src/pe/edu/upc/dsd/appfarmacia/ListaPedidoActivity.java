@@ -93,10 +93,10 @@ public class ListaPedidoActivity extends Activity {
         			holder = (ViewHolder)item.getTag();
         		}
     			
-    			holder.numero.setText("Pedido Nro: "+datos.get(position).getNumeroPedido());
-    			holder.nombreCliente.setText("Cliente: " +datos.get(position).getCliente());
-    			holder.telefono.setText("Telefono: " + datos.get(position).getTelefono());
-    			holder.fecha.setText("Fecha: " + datos.get(position).getFecha());
+    			holder.numero.setText(datos.get(position).getNumeroPedido());
+    			holder.nombreCliente.setText(datos.get(position).getCliente());
+    			holder.telefono.setText(datos.get(position).getTelefono());
+    			holder.fecha.setText(datos.get(position).getFecha());
     			return(item);
     		}
         }
