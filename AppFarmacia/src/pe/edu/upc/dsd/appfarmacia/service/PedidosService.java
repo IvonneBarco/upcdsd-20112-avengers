@@ -6,6 +6,7 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import pe.edu.upc.dsd.appfarmacia.model.DetallePedido;
 import pe.edu.upc.dsd.appfarmacia.model.PedidoResumen;
 import pe.edu.upc.dsd.appfarmacia.repository.AppDaoImp;
 import android.content.Context;
@@ -32,6 +33,16 @@ public class PedidosService {
 			return listaPedidos;
 		}else
 			return null;		
+	}
+	
+	public List<DetallePedido> getdetallePedido(int numped){
+		String jsonListaPedidos = appDaoImp.getDetallePedido(numped);
+		if(jsonListaPedidos !=null){
+			Type collectionType= new TypeToken<List<DetallePedido>>(){}.getType();
+			List<DetallePedido> listaPedidos= gson.fromJson(jsonListaPedidos, collectionType);
+			return listaPedidos;
+		}else
+			return null;
 	}
 
 }
