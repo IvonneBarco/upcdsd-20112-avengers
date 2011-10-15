@@ -7,9 +7,11 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import pe.edu.upc.dsd.appfarmacia.model.DetallePedido;
+import pe.edu.upc.dsd.appfarmacia.model.Pedido;
 import pe.edu.upc.dsd.appfarmacia.model.PedidoResumen;
 import pe.edu.upc.dsd.appfarmacia.repository.AppDaoImp;
 import android.content.Context;
+import android.util.Log;
 
 public class PedidosService {
 	
@@ -43,6 +45,12 @@ public class PedidosService {
 			return listaPedidos;
 		}else
 			return null;
+	}
+	
+	public void actualizarEstadoPedido(Pedido pedido){
+		String jsonListaCompra = gson.toJson(pedido);
+		Log.d("Objeto Pedido", jsonListaCompra);
+		appDaoImp.actualizarEstadoPedido(jsonListaCompra);
 	}
 
 }
