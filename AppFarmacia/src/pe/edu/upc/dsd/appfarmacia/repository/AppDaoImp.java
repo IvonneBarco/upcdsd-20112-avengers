@@ -42,4 +42,18 @@ public class AppDaoImp implements AppDao {
 		this.urlBase = urlBase;
 	}
 	
+	@Override
+	public String getDetallePedido(int pedido) {
+		// TODO Auto-generated method stub
+		String urlRequest = getUrlBase()+"/almacenRest/detallePedido/"+pedido;
+		String jsonListaPedidos = "";
+		try{
+			jsonListaPedidos=PeticionHttp.realizarPeticion(urlRequest);
+		}catch (IOException e) {
+			// TODO: handle exception
+			Log.e("ListaPedidos", e.getMessage());
+		}
+		return jsonListaPedidos;
+	}
+	
 }
