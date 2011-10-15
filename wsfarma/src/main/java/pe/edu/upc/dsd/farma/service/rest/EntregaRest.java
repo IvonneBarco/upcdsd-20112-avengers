@@ -2,7 +2,9 @@ package pe.edu.upc.dsd.farma.service.rest;
 
 import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -13,6 +15,7 @@ import com.google.gson.Gson;
 
 import pe.edu.upc.dsd.farma.dao.PedidoDao;
 import pe.edu.upc.dsd.farma.model.Mensaje;
+import pe.edu.upc.dsd.farma.model.Pedido;
 import pe.edu.upc.dsd.farma.model.PedidoEntrega;
 
 @Path("entregaRest")
@@ -34,10 +37,21 @@ public class EntregaRest implements IEntrega {
 		return gson.toJson(lista);
 	}
 
+	@PUT
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/actualizar")
 	@Override
-	public String actualizaPedido(String JsonNumeroPedido) {
-		// TODO Auto-generated method stub
-		return null;
+	public String actualizaPedido(String jsonNumeroPedido) {
+		Pedido pedido = gson.fromJson(jsonNumeroPedido, Pedido.class);
+		
+		pedidoDao.actualizarEstadoPedido(pedido.getNumero(), pedido.getEstado());
+		
+		message.setSuccess(true);
+		message.setError(false);
+		message.setDescripcion("Estado actualizado");
+		
+		return gson.toJson(message);
 	}
 
 }
