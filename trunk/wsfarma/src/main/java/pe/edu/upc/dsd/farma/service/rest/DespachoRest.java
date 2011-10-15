@@ -44,7 +44,7 @@ public class DespachoRest implements IDespacho {
 	@Override
 	public String actualizaPedido(String jsonNumeroPedido) {
 		Pedido pedido = gson.fromJson(jsonNumeroPedido, Pedido.class);
-		System.out.println("Numero Pedido :" + pedido.getNumero() + "  , estado : " + pedido.getEstado());
+		//System.out.println("Numero Pedido :" + pedido.getNumero() + "  , estado : " + pedido.getEstado());
 		pedidoDao.actualizarEstadoPedido(pedido.getNumero(), pedido.getEstado());
 		
 		message.setSuccess(true);
