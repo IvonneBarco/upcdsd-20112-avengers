@@ -13,9 +13,15 @@ public interface ICliente {
 
 	// DescuentoCliente
 	public String obtieneDescuento(String jsonDni);
-
+	
+	// Obtiene Secuencial Pedido
+	public String obtieneSecuencial();
+	
 	// RegistroPedido
 	public String registraPedido(String jsonPedido);
+	
+	// Registro Detalle Pedido
+	public String registraDetallePedido(String jsonDetallePedido);
 	
 	//Listar Producto
 	public String listarProducto();

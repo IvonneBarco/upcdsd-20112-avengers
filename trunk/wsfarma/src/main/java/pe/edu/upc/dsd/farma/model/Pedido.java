@@ -9,7 +9,6 @@ public class Pedido {
 	private double subImporte;
 	private double importeFinal;
 	private int estado;
-	private List<DetallePedido> detalle;
 
 	public int getNumero() {
 		return numero;
@@ -57,14 +56,6 @@ public class Pedido {
 
 	public void setEstado(int estado) {
 		this.estado = estado;
-	}
-
-	public List<DetallePedido> getDetalle() {
-		return detalle;
-	}
-
-	public void setDetalle(List<DetallePedido> detalle) {
-		this.detalle = detalle;
 	}
 
 }

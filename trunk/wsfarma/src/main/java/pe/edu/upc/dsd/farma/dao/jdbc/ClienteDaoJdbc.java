@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import pe.edu.upc.dsd.farma.dao.ClienteDao;
 import pe.edu.upc.dsd.farma.model.Cliente;
+import pe.edu.upc.dsd.farma.model.DatosMensaje;
 import pe.edu.upc.dsd.farma.model.DetallePedido;
 import pe.edu.upc.dsd.farma.model.Pedido;
 
@@ -62,6 +63,26 @@ public class ClienteDaoJdbc extends SimpleJdbcDaoSupport implements ClienteDao {
 					
 		} catch (EmptyResultDataAccessException e) {
 			// TODO Auto-generated catch block
+			return null;
+		}
+	}
+
+	@Override
+	public DatosMensaje obtieneDatos(int numeroPedido) {
+		try {
+			return getSimpleJdbcTemplate()
+					.queryForObject(
+							"select c.email as correoCliente, " +
+							"c.nombre as nombreCliente, " +
+							"p.importeFinal as importeCompra, " +
+							"p.numero as numeroPedido " +
+							"From cliente c JOIN "+
+							"pedido p " +
+							"on c.DNI = p.dniCliente " +
+							"where p.numero = ?",
+							new BeanPropertyRowMapper<DatosMensaje>(DatosMensaje.class),
+							numeroPedido);
+		} catch (EmptyResultDataAccessException e) {
 			return null;
 		}
 	}

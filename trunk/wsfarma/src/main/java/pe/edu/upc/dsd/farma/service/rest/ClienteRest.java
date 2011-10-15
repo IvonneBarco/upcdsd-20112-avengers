@@ -14,11 +14,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 
 import pe.edu.upc.dsd.farma.dao.ClienteDao;
 import pe.edu.upc.dsd.farma.dao.PedidoDao;
 import pe.edu.upc.dsd.farma.dao.ProductoDao;
+import pe.edu.upc.dsd.farma.logic.Util;
 import pe.edu.upc.dsd.farma.model.Cliente;
+import pe.edu.upc.dsd.farma.model.DatosMensaje;
+import pe.edu.upc.dsd.farma.model.DetallePedido;
 import pe.edu.upc.dsd.farma.model.Mensaje;
 import pe.edu.upc.dsd.farma.model.Pedido;
 import pe.edu.upc.dsd.farma.model.Producto;
@@ -35,6 +39,9 @@ public class ClienteRest implements ICliente {
 	private PedidoDao pedidoDao;
 	@Autowired
 	private ProductoDao productoDao;
+	
+	@Autowired
+	private JmsTemplate jmsTemplate;
 	
 	private Mensaje message = new Mensaje();
 	private Gson gson = new Gson();
@@ -108,12 +115,32 @@ public class ClienteRest implements ICliente {
 	@Override
 	public String registraPedido(String jsonPedido) {
 		Pedido pedido = gson.fromJson(jsonPedido, Pedido.class);
-		
 		pedidoDao.insertarPedido(pedido);
+		
+		DatosMensaje datos = clienteDao.obtieneDatos(pedido.getNumero());
+		
+		Util envio = new Util();
+		envio.encolar(jmsTemplate, datos);
 		
 		message.setSuccess(true);
 		message.setError(false);
 		message.setDescripcion("Pedido Registrado");
+		
+		return gson.toJson(message, Mensaje.class);
+	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/detallepedido")
+	@Override
+	public String registraDetallePedido(String jsonDetallePedido) {
+		DetallePedido detalle = gson.fromJson(jsonDetallePedido, DetallePedido.class);
+		pedidoDao.insertarDetallePedido(detalle);
+		
+		message.setSuccess(true);
+		message.setError(false);
+		message.setDescripcion("Detalle Registrado");
 		
 		return gson.toJson(message, Mensaje.class);
 	}
@@ -143,5 +170,22 @@ public class ClienteRest implements ICliente {
 	public String listarProducto() {
 		List<Producto> lista = productoDao.listarProducto();
 		return gson.toJson(lista);
+	}
+	
+	public void setJmsTemplate(JmsTemplate jmsTemplate) {
+		this.jmsTemplate = jmsTemplate;
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/obtieneNumero")
+	@Override
+	public String obtieneSecuencial() {
+		
+		int secuencial = pedidoDao.obtieneSecuencial();
+		
+		String retorno = gson.toJson(secuencial);
+		
+		return retorno;
 	}
 }
